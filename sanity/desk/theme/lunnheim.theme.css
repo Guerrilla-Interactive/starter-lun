@@ -1,0 +1,16 @@
+:root {
+  --input-placeholder-color: "#000000" !important;
+}
+
+* {
+  --input-fg-color: #e9d1a0;
+  --input-placeholder-color: #aa9966 !important;
+}
+
+*[data-as="a"]:not([data-disabled])[data-pressed] {
+  --card-bg-color: #474224 !important;
+}
+
+.dSpvvS:not([data-disabled="true"])[data-selected] {
+  --card-bg-color: #474224 !important;
+}
