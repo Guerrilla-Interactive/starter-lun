@@ -6,19 +6,24 @@ import { createGlobalStyle } from "styled-components"
 
 import config from "@/sanity/sanity.config"
 
-const GlobalStyle = createGlobalStyle(({ theme }) => ({
-  html: { backgroundColor: theme.sanity.color.base.bg },
-}))
+// const GlobalStyle = createGlobalStyle(({ theme }) => ({
+// // Type validation fails. theme.sanity is undefined!
+//   html: { backgroundColor: theme.sanity.color.base.bg },
+// }))
 
 export default function StudioPage() {
   return (
     <>
       <NextStudio config={config}>
         <StudioProvider config={config}>
-          <GlobalStyle />
+          {/* 
+            Enable only after fixing type validation of theme.sanity above!
+          <GlobalStyle /> 
+          */}
           <StudioLayout />
         </StudioProvider>
       </NextStudio>
     </>
   )
 }
+
