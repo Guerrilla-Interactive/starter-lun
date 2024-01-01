@@ -1,4 +1,4 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=http%3A%2F%2Fgithub.com%2FGuerrilla-Interactive%2Fstarter-lun&env=NEXT_PUBLIC_SITE_NAME,NEXT_PUBLIC_SITE_URL,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY&envDescription=You%20may%20set%20this%20to%20some%20random%20value%20and%20correct%20it%20when%20you%20need%20the%20appropriate%20service%20to%20work&integration-ids=oac_hb2LITYajhRQ0i4QznmKH7gx)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=http%3A%2F%2Fgithub.com%2FGuerrilla-Interactive%2Fstarter-lun&env=NEXT_PUBLIC_SITE_NAME&envDescription=You%20may%20set%20this%20to%20some%20random%20value%20and%20correct%20it%20when%20you%20need%20the%20appropriate%20service%20to%20work&integration-ids=oac_hb2LITYajhRQ0i4QznmKH7gx)
 
 
 # Setup
