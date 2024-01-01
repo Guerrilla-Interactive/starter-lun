@@ -6,7 +6,7 @@ import { z } from "zod"
  * This way you can ensure the app isn't built with invalid env vars.
  */
 export const serverSchema = z.object({
-  SANITY_API_TOKEN: z.string().optional(),
+  SANITY_API_READ_TOKEN: z.string().optional(),
   STRIPE_SECRET_KEY: z.string().optional(),
   RESEND_API: z.string().optional(),
   NODE_ENV: z.enum(["development", "test", "production"]),
@@ -18,7 +18,7 @@ export const serverSchema = z.object({
  * @type {{ [k in keyof z.infer<typeof serverSchema>]: z.infer<typeof serverSchema>[k] | undefined }}
  */
 export const serverEnvRaw = {
-  SANITY_API_TOKEN: process.env.SANITY_API_TOKEN,
+  SANITY_API_READ_TOKEN: process.env.SANITY_API_READ_TOKEN,
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   RESEND_API: process.env.RESEND_API,
   NODE_ENV: process.env.NODE_ENV,

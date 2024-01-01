@@ -3,8 +3,9 @@
 import 'server-only'
 
 import { experimental_taintUniqueValue } from 'react'
+import { serverEnv } from '@/src/env/server.mjs'
 
-export const sanityAPIToken = process.env.SANITY_API_TOKEN
+export const sanityAPIToken = serverEnv.SANITY_API_READ_TOKEN
 
 if (!sanityAPIToken) {
   throw new Error('Missing SANITY_API_READ_TOKEN')
