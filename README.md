@@ -1,13 +1,18 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=http%3A%2F%2Fgithub.com%2FGuerrilla-Interactive%2Fstarter-lun&env=NEXT_PUBLIC_SITE_NAME&envDescription=You%20may%20set%20this%20to%20some%20random%20value%20and%20correct%20it%20when%20you%20need%20the%20appropriate%20service%20to%20work&integration-ids=oac_hb2LITYajhRQ0i4QznmKH7gx)
-
-
 # Setup
 
-Run `pnpm install` to install dependencies.
+1. Deploy to Vercel by clicking on the button below. This creates a git repo, connects it to vercel and creates the sanity project. 
 
-This project uses Tailwind and Typescript, with optional TRPC setup for API routes.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=http%3A%2F%2Fgithub.com%2FGuerrilla-Interactive%2Fstarter-lun&env=NEXT_PUBLIC_SITE_NAME&envDescription=You%20may%20set%20this%20to%20some%20random%20value%20and%20correct%20it%20when%20you%20need%20the%20appropriate%20service%20to%20work&integration-ids=oac_hb2LITYajhRQ0i4QznmKH7gx)
 
-# Setup Prettier and ESLint
+1. Run `pnpm install` to install dependencies.
+
+1. Clone the repo thus created. Run `vercel link` then `vercel env pull` to download the environment file.
+
+1. Run `pnpm install` to install dependecies.
+
+1. Run `pnpn dev` to start development server.
+
+1. This project uses Tailwind and Typescript, with optional TRPC setup for API routes. See setup info for those below.
 
 ## Prettier
 
