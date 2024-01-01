@@ -198,7 +198,8 @@ export const piecesSlugSchema = defineType({
       name: "standardPrice",
       title: "Standard Price",
       type: "number",
-      description: "Price in NOK"
+      description: "Price in NOK",
+      validation: (Rule) => Rule.required()
     }),
     stringField({
       name: "sku",
