@@ -1,4 +1,4 @@
-[]. Don't require the following env variables
+[x]. Don't require the following env variables
 ```
 NEXT_PUBLIC_SITE_NAME: Required
 NEXT_PUBLIC_SITE_URL: Required

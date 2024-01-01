@@ -62,7 +62,7 @@ const arizona = localFont({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(clientEnv.NEXT_PUBLIC_SITE_URL),
+  metadataBase: new URL(clientEnv.NEXT_PUBLIC_SITE_URL ? clientEnv.NEXT_PUBLIC_SITE_URL : "https://example.com"),
   applicationName: clientEnv.NEXT_PUBLIC_SITE_NAME,
   title: {
     template: `%s | ${clientEnv.NEXT_PUBLIC_SITE_NAME}`,

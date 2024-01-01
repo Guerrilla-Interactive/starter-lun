@@ -34,9 +34,9 @@ export const clientSchema = z.object({
   NEXT_PUBLIC_SANITY_DATASET: z.string(),
   NEXT_PUBLIC_SITE_NAME: z.string(),
   NEXT_PUBLIC_SANITY_API_VERSION: z.string().optional(),
-  NEXT_PUBLIC_SITE_URL: z.string(),
+  NEXT_PUBLIC_SITE_URL: z.string().optional(),
   NEXT_PUBLIC_FATHOM_ID: z.string().optional(),
-  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string(),
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().optional(),
   NEXT_PUBLIC_FATHOM_SITES: z
     .string()
     .regex(
