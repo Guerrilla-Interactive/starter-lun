@@ -1,4 +1,4 @@
-import { tClient } from "@/lib/sanity/groqd-client"
+import { tClient } from "@/sanity/groqd-client"
 import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mobile-piece-archive-page.component"
 import { AllCategoryPieceType } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"

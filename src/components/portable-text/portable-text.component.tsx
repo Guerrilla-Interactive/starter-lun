@@ -1,25 +1,21 @@
-import { PortableTextProps } from "@/src/lib/queries/utils/portable-text.query"
 import {
   Heading,
   HeadingLevelType,
   HeadingSizeType,
 } from "../layout/heading.component"
-import { slugifyString } from "@/src/lib/queries/utils/slugify-string.util"
 import { ReactNode } from "react"
 import { PortableText as PortableTextComponent } from "@portabletext/react"
 import type {
   DownloadLinkObjectProps,
   ExternalLinkObjectProps,
   InternalLinkObjectProps,
+  PortableTextProps,
 } from "./portable-field.query"
 import { LinkResolver } from "../utils/link-resolver.component"
 import { CaretRight } from "@phosphor-icons/react"
 import { cn } from "@/src/utils/cn.util"
 import { Icon } from "../utils/icon.component"
-
-type VerticalSpaceSizes = {
-  [index: string]: string
-}
+import { slugifyString } from "@/src/utils/slugify-string.util"
 
 export type PortableTextOptions = {
   pSize?: string
@@ -61,8 +57,8 @@ const block = (options: PortableTextOptions) => {
             topHSize
               ? ((topHSize + 1) as HeadingSizeType)
               : topHLevel
-              ? ((topHLevel + 1) as HeadingSizeType)
-              : 3
+                ? ((topHLevel + 1) as HeadingSizeType)
+                : 3
           }
           className="mb-[0.5em] mt-[2em] first:mt-0 last:mb-0"
         >
@@ -77,8 +73,8 @@ const block = (options: PortableTextOptions) => {
           topHSize
             ? ((topHSize + 2) as HeadingSizeType)
             : topHLevel
-            ? ((topHLevel + 2) as HeadingSizeType)
-            : 4
+              ? ((topHLevel + 2) as HeadingSizeType)
+              : 4
         }
         className="mb-[0.5em] mt-[2em] first:mt-0 last:mb-0"
       >

@@ -1,5 +1,5 @@
 import { Header } from "@/components/layout/header.component"
-import { getSiteSettings } from "@/lib/queries/settings/settings.query"
+import { getSiteSettings } from "@/sanity/queries/settings/settings.query"
 
 interface RootLayoutProps {
   children: React.ReactNode

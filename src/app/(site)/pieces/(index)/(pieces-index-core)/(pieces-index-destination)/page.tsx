@@ -2,7 +2,7 @@ import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
 import { generatePageMeta } from "@/lib/generate-page-meta.util"
-import { tClient } from "@/lib/sanity/groqd-client"
+import { tClient } from "@/sanity/groqd-client"
 
 import { PiecesIndexPage } from "../../pieces.index-page"
 import { piecesIndexQuery } from "../(pieces-index-server)/pieces.index-query"

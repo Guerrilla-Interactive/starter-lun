@@ -3,8 +3,8 @@
 import { SanityImage } from "sanity-image"
 
 import { clientEnv } from "@/env/client.mjs"
-import type { ImageType } from "@/lib/queries/utils/image.query"
 import { cn } from "@/utils/cn.util"
+import { ImageType } from "@/sanity/queries/utils/image.query"
 
 type ImgProps = {
   image: ImageType

@@ -1,4 +1,4 @@
-import { tClient } from "@/lib/sanity/groqd-client"
+import { tClient } from "@/sanity/groqd-client"
 import { notFound } from "next/navigation"
 import { categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"

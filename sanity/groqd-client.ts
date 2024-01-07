@@ -1,7 +1,7 @@
 import type { z } from "groqd"
 import { cache } from "react"
 
-import { client } from "./client.server"
+import { client } from "./client"
 import { loadQuery } from "./store"
 
 type Query = string

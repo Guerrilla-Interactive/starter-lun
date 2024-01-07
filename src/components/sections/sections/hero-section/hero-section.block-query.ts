@@ -1,5 +1,5 @@
-import { internalLinkQuery } from "@/src/lib/queries/navigation/links.query"
-import { imageQuery } from "@/src/lib/queries/utils/image.query"
+import { internalLinkQuery } from "@/sanity/queries/navigation/links.query"
+import { imageQuery } from "@/sanity/queries/utils/image.query"
 import { q, Selection, TypeFromSelection } from "groqd"
 
 export const heroSectionObjectQuery = {

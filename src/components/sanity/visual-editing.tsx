@@ -2,7 +2,7 @@
 
 'use client'
 
-import { client } from '@/src/lib/sanity/client.server'
+import { client } from '@/sanity/client'
 import { enableOverlays, HistoryAdapterNavigate } from '@sanity/overlays'
 import { useLiveMode } from '@sanity/react-loader'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'

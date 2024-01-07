@@ -1,4 +1,4 @@
-import { tClient } from "@/lib/sanity/groqd-client"
+import { tClient } from "@/sanity/groqd-client"
 import { q } from "groqd"
 
 const query = q("*")

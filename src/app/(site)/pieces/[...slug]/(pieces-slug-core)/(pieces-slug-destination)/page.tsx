@@ -1,13 +1,11 @@
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
-import { generatePageMeta } from "@/lib/generate-page-meta.util"
-import { tClient, tClientNew } from "@/lib/sanity/groqd-client"
-
 import { PiecesSlugPage } from "../../pieces.slug-page"
 import { piecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
 import { PiecesSlugPreview } from "./pieces.slug-preview"
-import { Divide } from "@phosphor-icons/react/dist/ssr"
+import { tClient } from "@/sanity/groqd-client"
+import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
 type Props = {
   params: {
@@ -45,7 +43,7 @@ const PieceOrCateogoryPage = async ({ params }: Props) => {
   // Note that the page is the same for each variant thus we're 
   // are extracting the piece slug to get the piece details. 
   const paramsWithoutVariant = { slug: pieceSlug }
-  const data = await tClientNew(piecesSlugQuery, paramsWithoutVariant)
+  const data = await tClient(piecesSlugQuery, paramsWithoutVariant)
 
   // If there's no data for the given piece slug, we return error
   if (!data) {

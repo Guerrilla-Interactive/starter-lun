@@ -1,6 +1,6 @@
 import { InferType, q } from "groqd"
 
-import { metadataQuery } from "@/src/lib/queries/utils/metadata.query"
+import { metadataQuery } from "@/sanity/queries/utils/metadata.query"
 
 import { piecesQuery } from "../../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
 import { Pick } from "react-spring"

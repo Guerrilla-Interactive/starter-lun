@@ -1,7 +1,7 @@
 import type { InferType } from "groqd"
 import { q } from "groqd"
 
-import { tClient } from "@/lib/sanity/groqd-client"
+import { tClient } from "@/sanity/groqd-client"
 
 import { menuQuery } from "./menu.query"
 import { metadataSettingsQuery } from "./metadata.query"

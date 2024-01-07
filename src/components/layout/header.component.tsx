@@ -4,7 +4,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import React, { useCallback, useEffect, useRef, useState } from "react"
 
-import type { MenuSettings } from "@/lib/queries/settings/settings.query"
 import { LunnheimLogo } from "@/sanity/desk/theme/lunnheim-logo.component"
 import { LunnheimSymbol } from "@/sanity/desk/theme/lunnheim-symbol.component"
 import { useGlobalContext } from "@/src/context/global-context"
@@ -23,6 +22,7 @@ import {
 import ShoppingCart from "../shopping-cart/shopping-cart.component"
 import { LinkResolver } from "../utils/link-resolver.component"
 import { MenuToggle } from "./menu/menu-toggle.component"
+import { MenuSettings } from "@/sanity/queries/settings/settings.query"
 
 const HeaderContent = (props: MenuSettings) => {
   const dropdownRef = useRef<HTMLDivElement>(null)

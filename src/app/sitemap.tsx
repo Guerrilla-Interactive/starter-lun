@@ -4,7 +4,7 @@ import type { MetadataRoute } from "next"
 
 import { clientEnv } from "@/env/client.mjs"
 import { PATHS, resolvePath } from "@/lib/navigation/resolve-path.util"
-import { tClient } from "@/lib/sanity/groqd-client"
+import { tClient } from "@/sanity/groqd-client"
 import { piecesIndexQuery } from "./(site)/pieces/(index)/(pieces-index-core)/(pieces-index-server)/pieces.index-query"
 
 const sitemapFields = {

@@ -13,7 +13,7 @@ import { requiredField } from "@/sanity/schemas/generator-field/required.field"
 import { booleanField } from "@/sanity/schemas/generator-field/boolean.field"
 import { referenceField } from "@/sanity/schemas/generator-field/reference.field"
 import { category } from "@/sanity/schemas/documents"
-import { slugifyString } from "@/src/lib/queries/utils/slugify-string.util"
+import { slugifyString } from "@/src/utils/slugify-string.util"
 
 export const piecesSlugSchema = defineType({
   type: "document",

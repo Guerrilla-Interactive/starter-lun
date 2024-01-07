@@ -1,5 +1,5 @@
 import { clientEnv } from "@/env/client.mjs"
-import { ImageType } from "@/lib/queries/utils/image.query"
+import { ImageType } from "@/sanity/queries/utils/image.query"
 import { cn } from "@/utils/cn.util"
 import { SanityImage } from "sanity-image"
 

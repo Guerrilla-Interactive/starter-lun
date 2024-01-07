@@ -1,7 +1,7 @@
 import { InferType, q } from "groqd"
 
-import { basePageQuery } from "@/lib/queries/utils/base-page.query"
-import { notDraft } from "@/src/lib/sanity/not-draft.query"
+import { basePageQuery } from "@/sanity/queries/utils/base-page.query"
+import { notDraft } from "@/sanity/not-draft.query"
 import { heroSectionObjectQuery } from "@/src/components/sections/sections/hero-section/hero-section.block-query"
 import {
   piecesQuery,

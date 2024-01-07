@@ -1,8 +1,7 @@
+import { MetadataProps } from "@/sanity/queries/utils/metadata.query"
+import { urlForImage } from "@/sanity/sanity-image"
 import type { Metadata } from "next"
 import type { Image } from "sanity"
-
-import type { MetadataProps } from "./queries/utils/metadata.query"
-import { urlForImage } from "./sanity/sanity-image"
 
 export const generatePageMeta = (
   metadata: MetadataProps | undefined
@@ -13,9 +12,9 @@ export const generatePageMeta = (
 
   const imageUrl = graphic?.asset
     ? urlForImage(graphic as Image)
-        .width(1200)
-        .height(630)
-        .url()
+      .width(1200)
+      .height(630)
+      .url()
     : null
 
   const metaTitle = title ?? undefined
@@ -29,13 +28,13 @@ export const generatePageMeta = (
       description: metaDesc,
       images: imageUrl
         ? [
-            {
-              url: imageUrl,
-              width: 1200,
-              height: 630,
-              alt: graphic?.alt ?? "",
-            },
-          ]
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: graphic?.alt ?? "",
+          },
+        ]
         : undefined,
     },
   }
