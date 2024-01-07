@@ -1,26 +1,26 @@
 'use client'
 
 
-import type { StripeError } from '@stripe/stripe-js'
-
-import * as React from 'react'
 import {
-  useStripe,
-  useElements,
-  PaymentElement,
   Elements,
+  PaymentElement,
+  useElements,
+  useStripe,
 } from '@stripe/react-stripe-js'
+import type { StripeError } from '@stripe/stripe-js'
+import * as React from 'react'
 
-
+import { sendOrderEmail } from '@/src/app/actions'
+import { Flex, FlexCol, FlexRow } from '@/src/components/nextgen-core-ui'
+import type { OrderClient, OrderEmailProps } from '@/src/emails/order-success'
+import { COLORS } from '@/src/styles/theme'
+import { useLocalStorage } from '@/src/utils/hooks/use-local-storage'
 import getStripe from '@/utils/get-stripejs'
+
+import type { ShoppingCartItem} from '../../context/global-context';
+import { useGlobalContext } from '../../context/global-context'
 import { createPaymentIntent } from '../actions/stripe'
 import { CURRENCY, } from '../stripe-config'
-import { COLORS } from '@/src/styles/theme'
-import { ShoppingCartItem, useGlobalContext } from '../../context/global-context'
-import { Flex, FlexCol, FlexRow } from '@/src/components/nextgen-core-ui'
-import { OrderClient, OrderEmailProps } from '@/src/emails/order-success'
-import { useLocalStorage } from '@/src/utils/hooks/use-local-storage'
-import { sendOrderEmail } from '@/src/app/actions'
 
 
 
@@ -216,18 +216,18 @@ function CheckoutForm(): JSX.Element {
     <>
       <FlexCol className="w-full gap-y-4 ">
 
-        <form className="flex flex-col gap-y-4 w-full text-sm" onSubmit={handleSubmit}>
+        <form className="flex w-full flex-col gap-y-4 text-sm" onSubmit={handleSubmit}>
           <FlexRow className=' w-full justify-evenly gap-x-8'>
-            <FlexCol className="gap-2  max-w-md w-full">
+            <FlexCol className="w-full  max-w-md gap-2">
               <FlexRow className="text-base">
                 Fakturaadresse
               </FlexRow>
-              <Flex className="gap-2 w-full" >
+              <Flex className="w-full gap-2" >
 
                 <FlexCol className="w-full"  >
                   <input
                     placeholder="Fornavn"
-                    className="p-2 text-lunnheim-darker-olive flex border-lunnheim-olive border-opacity-30 placeholder-lunnheim-olive bg-lunnheim-pale-yellow bg-opacity-20  border-2 rounded-md"
+                    className="flex rounded-md border-2 border-lunnheim-olive border-opacity-30 bg-lunnheim-pale-yellow bg-opacity-20 p-2  text-lunnheim-darker-olive placeholder:text-lunnheim-olive"
                     type="Text"
                     name="firstName"
                     value={input.firstName}
@@ -238,7 +238,7 @@ function CheckoutForm(): JSX.Element {
                 <FlexCol className="w-1/3">
                   <input
                     placeholder="Etternavn"
-                    className="p-2 flex text-lunnheim-darker-olive  border-lunnheim-olive border-opacity-30 placeholder-lunnheim-olive bg-lunnheim-pale-yellow bg-opacity-20  border-2 rounded-md"
+                    className="flex rounded-md border-2  border-lunnheim-olive border-opacity-30 bg-lunnheim-pale-yellow bg-opacity-20 p-2  text-lunnheim-darker-olive placeholder:text-lunnheim-olive"
                     type="Text"
                     name="lastName"
                     value={input.lastName}
@@ -251,7 +251,7 @@ function CheckoutForm(): JSX.Element {
                 <FlexCol className="w-full">
                   <input
                     placeholder="Adresse"
-                    className="p-2 flex text-lunnheim-darker-olive w-full border-lunnheim-olive border-opacity-30 placeholder-lunnheim-olive bg-lunnheim-pale-yellow bg-opacity-20  border-2 rounded-md"
+                    className="flex w-full rounded-md border-2 border-lunnheim-olive border-opacity-30 bg-lunnheim-pale-yellow bg-opacity-20 p-2  text-lunnheim-darker-olive placeholder:text-lunnheim-olive"
                     type="Text"
                     name="address"
                     onChange={handleInputChange}
@@ -260,11 +260,11 @@ function CheckoutForm(): JSX.Element {
                   />
                 </FlexCol>
               </FlexRow>
-              <FlexRow className="gap-2 w-full">
+              <FlexRow className="w-full gap-2">
                 <FlexCol className="">
                   <input
                     placeholder="Postnummer"
-                    className="p-2 text-lunnheim-darker-olive flex border-lunnheim-olive border-opacity-30 placeholder-lunnheim-olive bg-lunnheim-pale-yellow bg-opacity-20  border-2 rounded-md"
+                    className="flex rounded-md border-2 border-lunnheim-olive border-opacity-30 bg-lunnheim-pale-yellow bg-opacity-20 p-2  text-lunnheim-darker-olive placeholder:text-lunnheim-olive"
                     type="Text"
                     name="postalCode"
                     value={input.postalCode}
@@ -275,7 +275,7 @@ function CheckoutForm(): JSX.Element {
                 <FlexCol className="w-full">
                   <input
                     placeholder="By"
-                    className="p-2 text-lunnheim-darker-olive flex border-lunnheim-olive border-opacity-30 placeholder-lunnheim-olive bg-lunnheim-pale-yellow bg-opacity-20  border-2 rounded-md"
+                    className="flex rounded-md border-2 border-lunnheim-olive border-opacity-30 bg-lunnheim-pale-yellow bg-opacity-20 p-2  text-lunnheim-darker-olive placeholder:text-lunnheim-olive"
                     type="Text"
                     name="city"
                     value={input.city}
@@ -284,11 +284,11 @@ function CheckoutForm(): JSX.Element {
                   />
                 </FlexCol>
               </FlexRow>
-              <FlexRow className="gap-2  w-full">
+              <FlexRow className="w-full  gap-2">
                 <FlexCol className="w-full">
                   <input
                     placeholder="E-post "
-                    className="p-2 text-lunnheim-darker-olive flex border-lunnheim-olive border-opacity-30 placeholder-lunnheim-olive bg-lunnheim-pale-yellow bg-opacity-20  border-2 rounded-md"
+                    className="flex rounded-md border-2 border-lunnheim-olive border-opacity-30 bg-lunnheim-pale-yellow bg-opacity-20 p-2  text-lunnheim-darker-olive placeholder:text-lunnheim-olive"
                     type="Text"
                     name="email"
                     value={input.email}
@@ -299,7 +299,7 @@ function CheckoutForm(): JSX.Element {
                 <FlexCol className="w-[1/4]">
                   <input
                     placeholder="Telefon"
-                    className="p-2 text-lunnheim-darker-olive  flex border-lunnheim-olive border-opacity-30 placeholder-lunnheim-olive bg-lunnheim-pale-yellow bg-opacity-20  border-2 rounded-md"
+                    className="flex rounded-md  border-2 border-lunnheim-olive border-opacity-30 bg-lunnheim-pale-yellow bg-opacity-20 p-2  text-lunnheim-darker-olive placeholder:text-lunnheim-olive"
                     type="Text"
                     name="phone"
                     value={input.phone}
@@ -311,11 +311,11 @@ function CheckoutForm(): JSX.Element {
 
 
 
-              <FlexRow className="mt-6 opacity-80 mb-8" >
-                <FlexCol className="border-2  border-lunnheim-dark-olive rounded-md w-full p-4 md:p-0 h-[10rem] ">
-                  <FlexRow className="h-full justify-start gap-x-12 md:px-8 items-center ">
+              <FlexRow className="mb-8 mt-6 opacity-80" >
+                <FlexCol className="h-[10rem]  w-full rounded-md border-2 border-lunnheim-dark-olive p-4 md:p-0 ">
+                  <FlexRow className="h-full items-center justify-start gap-x-12 md:px-8 ">
                     <FlexCol className="h-full items-center">
-                      <svg className="flex my-auto" width="55" height="65" viewBox="0 0 55 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="my-auto flex" width="55" height="65" viewBox="0 0 55 65" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M27.262 64.8993C42.3247 64.955 54.5749 50.5076 54.641 32.6007C54.7072 14.6938 42.5641 0.156361 27.5015 0.100711C12.4388 0.0450614 0.188644 14.4924 0.122486 32.3993C0.0563277 50.3062 12.1994 64.8437 27.262 64.8993ZM27.2672 63.5061C13.7423 63.4561 2.85856 48.7836 2.91906 32.4096C2.97955 16.0357 13.9715 1.44395 27.4963 1.49392C41.0212 1.54388 51.9048 16.251 51.8444 32.5904C51.7841 48.9298 40.756 63.5559 27.2672 63.5061Z" fill="#474224" />
                         <path d="M34.117 42.759L34.1219 41.4336C30.5937 43.0111 27.948 42.6691 28.4021 40.3521C30.9917 30.6417 31.4375 29.1412 31.4375 29.1412C31.5215 25.4656 24.2499 28.1132 20.6036 29.8964L20.5987 31.2219C28.6249 27.717 27.106 33.6317 23.7302 41.6603C21.0441 48.0484 29.6467 45.0988 34.117 42.759Z" fill="#474224" />
                         <ellipse cx="28.4353" cy="19.4198" rx="3.27331" ry="3.19537" transform="rotate(0.211682 28.4353 19.4198)" fill="#474224" />
@@ -348,7 +348,7 @@ function CheckoutForm(): JSX.Element {
                 </div>
               </fieldset>
               <button
-                className="elements-style-background bg-lunnheim-olive py-4  mt-8 rounded-lg text-lunnheim-white"
+                className="elements-style-background mt-8 rounded-lg  bg-lunnheim-olive py-4 text-lunnheim-white"
                 type="submit"
                 disabled={
                   !['initial', 'succeeded', 'error'].includes(payment.status) ||

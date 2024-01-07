@@ -2,7 +2,8 @@
 
 import { Resend } from 'resend';
 
-import { OrderEmailProps, OrderConfirmEmailToClient, OrderEmailPropsSchema } from "../emails/order-success"
+import type { OrderEmailProps} from "../emails/order-success";
+import { OrderConfirmEmailToClient, OrderEmailPropsSchema } from "../emails/order-success"
 import { OrderConfirmEmailToAdmin } from '../emails/order-success-admin';
 
 

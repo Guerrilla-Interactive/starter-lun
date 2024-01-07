@@ -3,6 +3,7 @@ import { q } from "groqd"
 
 import { imageInnerQuery, imageQuery } from "@/sanity/queries/utils/image.query"
 import { portableTextQuery } from "@/src/components/portable-text/portable-field.query"
+
 import { categoryQueryPreviewSelection } from "../../../categories/categories-shared-utils/categories-queries/categories.shared-queries"
 
 export const pieceVariantQuery = {

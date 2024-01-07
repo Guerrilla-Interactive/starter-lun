@@ -1,9 +1,10 @@
-import { InferType, q } from "groqd"
+import type { InferType} from "groqd";
+import { q } from "groqd"
+import type { Pick } from "react-spring"
 
 import { metadataQuery } from "@/sanity/queries/utils/metadata.query"
 
 import { piecesQuery } from "../../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
-import { Pick } from "react-spring"
 
 export const piecesIndexQuery = q("*")
   .filterByType("piecesIndex")

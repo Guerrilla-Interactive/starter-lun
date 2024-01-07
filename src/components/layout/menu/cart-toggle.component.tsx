@@ -1,5 +1,7 @@
 // Import necessary dependencies
-import React, { Dispatch, SetStateAction } from "react"
+import type { Dispatch, SetStateAction } from "react";
+import React from "react"
+
 import { cn } from "@/utils/cn.util"
 
 // Define the props type

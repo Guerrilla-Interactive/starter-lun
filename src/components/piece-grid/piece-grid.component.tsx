@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useRef, useMemo, useEffect, useState, useCallback } from 'react';
-import { PieceItem } from './piece-item.component';
-import { PieceType, PieceQuery } from '@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries';
 import { motion } from 'framer-motion';
+import React, { useCallback,useEffect, useMemo, useRef, useState } from 'react';
+
+import type { PieceQuery,PieceType } from '@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries';
 import { useGlobalContext } from '@/src/context/global-context';
-import { FlexCol, Flex } from '../nextgen-core-ui';
+
 import { AllCategoryPieceType } from '../category-filter-slider/category-filter-slider.component';
+import { Flex,FlexCol } from '../nextgen-core-ui';
+import { PieceItem } from './piece-item.component';
 
 interface PieceGridProps {
   pieces: PieceQuery[];
@@ -141,7 +143,7 @@ export const PieceGrid: React.FC<PieceGridProps> = ({ pieces, activeCategory }) 
     return pieces.map((_, i) => (
       <div key={i} className="h-12 cursor-pointer" onClick={() => scrollToItem(i)}>
         <FlexCol
-          className={`w-7 h-1 transition-all duration-200 bg-lunnheim-pale-yellow  ${visibleIndexes.has(i) ? '!bg-lunnheim-olive' : ''}`}>
+          className={`h-1 w-7 bg-lunnheim-pale-yellow transition-all duration-200  ${visibleIndexes.has(i) ? '!bg-lunnheim-olive' : ''}`}>
 
         </FlexCol>
       </div>
@@ -189,7 +191,7 @@ export const PieceGrid: React.FC<PieceGridProps> = ({ pieces, activeCategory }) 
   return (
     <div
       ref={ref}
-      className="cursor-grab flex-nowrap overflow-x-scroll animate-fadeIn py-12 scrollbar-hide"
+      className="animate-fadeIn cursor-grab flex-nowrap overflow-x-scroll py-12 scrollbar-hide"
       style={{
         paddingLeft: globalData.screenData.screenWidth > 620 ? globalData.screenData.defaultContainerMarginX : "0",
 
@@ -197,7 +199,7 @@ export const PieceGrid: React.FC<PieceGridProps> = ({ pieces, activeCategory }) 
     >
 
       <div className="mr-12 grid grid-flow-col justify-start gap-[10px] gap-x-8 gap-y-10">
-        <div className=" w-[50px] ml-[-50px] pl-[50px] md:hidden md:w-[300px]"></div>
+        <div className=" ml-[-50px] w-[50px] pl-[50px] md:hidden md:w-[300px]"></div>
         {filteredPieces.map((piece, idx) => (
           <motion.div
             key={idx}

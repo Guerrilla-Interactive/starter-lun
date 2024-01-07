@@ -1,4 +1,4 @@
-import type { MainMenu } from "@/lib/queries/settings/settings.query"
+import type { MainMenu } from "@/sanity/queries/settings/settings.query"
 import { cn } from "@/utils/cn.util"
 
 import { MenuItem } from "./menu-item.component"

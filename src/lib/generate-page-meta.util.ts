@@ -1,7 +1,8 @@
-import { MetadataProps } from "@/sanity/queries/utils/metadata.query"
-import { urlForImage } from "@/sanity/sanity-image"
 import type { Metadata } from "next"
 import type { Image } from "sanity"
+
+import type { MetadataProps } from "@/sanity/queries/utils/metadata.query"
+import { urlForImage } from "@/sanity/sanity-image"
 
 export const generatePageMeta = (
   metadata: MetadataProps | undefined

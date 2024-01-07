@@ -6,6 +6,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react"
 
 import { LunnheimLogo } from "@/sanity/desk/theme/lunnheim-logo.component"
 import { LunnheimSymbol } from "@/sanity/desk/theme/lunnheim-symbol.component"
+import type { MenuSettings } from "@/sanity/queries/settings/settings.query"
 import { useGlobalContext } from "@/src/context/global-context"
 import ElementsForm from "@/src/stripe/components/ElementsForm"
 import { cn } from "@/src/utils/cn.util"
@@ -22,7 +23,6 @@ import {
 import ShoppingCart from "../shopping-cart/shopping-cart.component"
 import { LinkResolver } from "../utils/link-resolver.component"
 import { MenuToggle } from "./menu/menu-toggle.component"
-import { MenuSettings } from "@/sanity/queries/settings/settings.query"
 
 const HeaderContent = (props: MenuSettings) => {
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -70,7 +70,7 @@ const HeaderContent = (props: MenuSettings) => {
   }, [closeMenu, pathname, prevPathname])
 
   const headerClass = cn(
-    "!fixed !top-0 z-50 mt-6 w-full overflow-hidden scrollbar-hide transition-all duration-500  ease-out",
+    "!fixed !top-0 z-50 mt-6 w-full overflow-hidden transition-all duration-500 ease-out  scrollbar-hide",
     globalData.headerData.expanded && ""
   )
 
@@ -95,7 +95,7 @@ const HeaderContent = (props: MenuSettings) => {
     <Section className={headerClass}>
       <FlexCol
         ref={headerRef}
-        className="relative mx-auto h-full w-full max-w-[97.5vw] overflow-hidden  scrollbar-hide  rounded-xl bg-lunnheim-ivory-yellow bg-opacity-80 backdrop-blur-xl md:max-w-[1360px]"
+        className="relative mx-auto h-full w-full max-w-[97.5vw] overflow-hidden  rounded-xl  bg-lunnheim-ivory-yellow bg-opacity-80 backdrop-blur-xl scrollbar-hide md:max-w-[1360px]"
       >
         <Flex className="mx-4 content-center justify-between overflow-hidden py-3 md:gap-x-12 md:px-10">
           <MenuToggle
@@ -135,7 +135,7 @@ const HeaderContent = (props: MenuSettings) => {
         </Flex>
         <Relative
           className={cn(
-            "transition-all duration-500 overflow-y-auto overflow-x-hidden",
+            "overflow-y-auto overflow-x-hidden transition-all duration-500",
             globalData.headerData.expanded
               ? " h-[70vh] opacity-100"
               : "pointer-events-none h-0 opacity-0"
@@ -157,8 +157,8 @@ const HeaderContent = (props: MenuSettings) => {
                   <FlexCol
                     ref={dropdownRef}
                     className={cn(
-                      "h-fit w-full gap-y-4 py-6 transition-all duration-500 opacity-100 ease-out md:w-1/4",
-                      globalData.shoppingCartData.checkoutActive && "!w-0 h-0 opacity-0"
+                      "h-fit w-full gap-y-4 py-6 opacity-100 transition-all duration-500 ease-out md:w-1/4",
+                      globalData.shoppingCartData.checkoutActive && "h-0 !w-0 opacity-0"
                     )}
                   >
                     {props.menu?.map((item) => {
@@ -220,11 +220,11 @@ const HeaderContent = (props: MenuSettings) => {
 
 
 
-                  <FlexCol className={cn("w-0 rounded-2xl opacity-0 duration-1000 bg-opacity-10 ", globalData.shoppingCartData.checkoutActive && "w-full opacity-100")}>
-                    <FlexRow className={cn("w-0 rounded-2xl opacity-0  bg-opacity-10 ", globalData.shoppingCartData.checkoutActive && "w-full opacity-100")}>
+                  <FlexCol className={cn("w-0 rounded-2xl bg-opacity-10 opacity-0 duration-1000 ", globalData.shoppingCartData.checkoutActive && "w-full opacity-100")}>
+                    <FlexRow className={cn("w-0 rounded-2xl bg-opacity-10  opacity-0 ", globalData.shoppingCartData.checkoutActive && "w-full opacity-100")}>
                       {globalData.shoppingCartData.checkoutActive &&
 
-                        <FlexCol className={cn("relative justify-start md:px-12 flex w-0 mt-12 opacity-0 transition-all duration-1000", globalData.shoppingCartData.checkoutActive && "!opacity-100 w-full")}>
+                        <FlexCol className={cn("relative mt-12 flex w-0 justify-start opacity-0 transition-all duration-1000 md:px-12", globalData.shoppingCartData.checkoutActive && "w-full !opacity-100")}>
                           <ElementsForm />
 
                         </FlexCol>
@@ -265,7 +265,7 @@ const OrderSuccessDialog = () => {
   const order = globalData.orderSnapshot
   const items = order?.items.map(x => x.name).join(", ")
   return (
-    <div className="px-8 xl:px-32 md:py-16">
+    <div className="px-8 md:py-16 xl:px-32">
       <div>
         Hi {order?.client.firstName},
         <p className="mt-4">Thank you for your recent purchase of {items}. We have received your payment of {order?.client.price}. Further details will be sent to your email.</p>

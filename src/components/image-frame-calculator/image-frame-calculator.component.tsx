@@ -1,9 +1,12 @@
 "use client"
 
-import React, { useState, useMemo, useCallback } from "react"
 import "tailwindcss/tailwind.css"
-import { Absolute, FlexCol, FlexRow, Relative } from "../nextgen-core-ui"
+
+import React, { useCallback,useMemo, useState } from "react"
+
 import { useGlobalContext } from "@/src/context/global-context"
+
+import { Absolute, FlexCol, FlexRow, Relative } from "../nextgen-core-ui"
 
 interface ImageFrameCalculatorProps {
   initialWidth?: number

@@ -1,9 +1,11 @@
-import { tClient } from "@/sanity/groqd-client"
-import { notFound } from "next/navigation"
-import { categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
-import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
-import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mobile-piece-archive-page.component"
 import { draftMode } from "next/headers"
+import { notFound } from "next/navigation"
+
+import { tClient } from "@/sanity/groqd-client"
+import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mobile-piece-archive-page.component"
+import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
+
+import { categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
 import { CategoriesSlugPreview } from "./categories.slug-preview"
 
 

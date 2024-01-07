@@ -1,6 +1,8 @@
+import type { Selection, TypeFromSelection } from "groqd";
+import { q } from "groqd"
+
 import { internalLinkQuery } from "@/sanity/queries/navigation/links.query"
 import { imageQuery } from "@/sanity/queries/utils/image.query"
-import { q, Selection, TypeFromSelection } from "groqd"
 
 export const heroSectionObjectQuery = {
   title: q.string().nullable(),

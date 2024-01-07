@@ -1,9 +1,10 @@
 "use client"
 
-import { FrontPageComponent } from "./frontpage.component";
-import { frontPageQuery } from "./front-page.query";
 import { PreviewLoadingErrorHOC } from "@/src/components/sanity/preview-loading-error-hoc"
-import { PageQuery } from "../[slug]/page.query";
+
+import type { PageQuery } from "../[slug]/page.query";
+import { frontPageQuery } from "./front-page.query";
+import { FrontPageComponent } from "./frontpage.component";
 
 export default function FrontPagePreviewComponent({ initial }: { initial: PageQuery }) {
   return (

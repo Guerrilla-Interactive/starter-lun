@@ -1,6 +1,7 @@
+import React from "react"
+
 import { FlexCol } from "@/src/components/nextgen-core-ui"
 import { cn } from "@/src/utils/cn.util"
-import React from "react"
 
 interface ProductSliderContainerProps {
   children: React.ReactNode

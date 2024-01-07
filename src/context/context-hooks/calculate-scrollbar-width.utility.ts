@@ -1,5 +1,5 @@
 // useScrollbarWidth.ts
-import { useState, useEffect } from "react"
+import { useEffect,useState } from "react"
 
 const useScrollbarWidth = () => {
   const [scrollbarWidth, setScrollbarWidth] = useState(0)

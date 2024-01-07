@@ -1,11 +1,13 @@
 "use client"
 
+import { motion } from "framer-motion"
 import type { CSSProperties } from "react"
 import React, { forwardRef, useEffect, useState } from "react"
-import { RoundedDivider } from "../../sections/sections/hero-section/(parts)/rounded-divider.component"
-import { cn } from "@/src/utils/cn.util"
-import { motion } from "framer-motion"
+
 import { useGlobalContext } from "@/src/context/global-context"
+import { cn } from "@/src/utils/cn.util"
+
+import { RoundedDivider } from "../../sections/sections/hero-section/(parts)/rounded-divider.component"
 
 interface VerticalSpaceProps {
   height?: number | string
@@ -66,7 +68,7 @@ const VerticalSpace = forwardRef<HTMLDivElement, VerticalSpaceProps>(
         transition={{ duration: 0.9 }}
         className={cn(
           className,
-          "h-full w-full max-w-[100vw] overflow-hidden overflow-x-hidden"
+          "h-full w-full max-w-[100vw] overflow-hidden"
         )}
         style={combinedStyles}
         {...rest}

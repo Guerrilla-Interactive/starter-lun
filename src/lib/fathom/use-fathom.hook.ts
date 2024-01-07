@@ -1,9 +1,9 @@
 "use client"
-import { clientEnv } from "@/env/client.mjs"
 import * as Fathom from "fathom-client"
 import { useRouter } from "next/navigation"
-
 import { useEffect } from "react"
+
+import { clientEnv } from "@/env/client.mjs"
 
 export const useFathom = () => {
   /*  const router = useRouter()

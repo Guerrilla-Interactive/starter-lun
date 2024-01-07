@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next"
+import type { MetadataRoute } from "next"
 import { env } from "process"
 
 // this function removes the trailing slash

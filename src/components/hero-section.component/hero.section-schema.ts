@@ -1,9 +1,10 @@
 import { defineField } from "sanity"
-import { stringField } from "@/schemaGen/string.field"
+import { boolean } from "zod"
+
+import { booleanField } from "@/sanity/schemas/generator-field/boolean.field"
 import { figureField } from "@/sanity/schemas/generator-field/figure.field"
 import { linksField } from "@/sanity/schemas/generator-field/links.field"
-import { boolean } from "zod"
-import { booleanField } from "@/sanity/schemas/generator-field/boolean.field"
+import { stringField } from "@/schemaGen/string.field"
 
 export const heroSectionObject = defineField({
   type: "object",

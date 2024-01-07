@@ -1,9 +1,14 @@
 "use client"
 
 import "keen-slider/keen-slider.min.css"
-import { KeenSliderPlugin, useKeenSlider } from "keen-slider/react"
-import React, { useCallback, useEffect, useRef, useState } from "react"
+
+import type { KeenSliderPlugin} from "keen-slider/react";
+import { useKeenSlider } from "keen-slider/react"
+import Link from "next/link"
 import { useRouter } from 'next/navigation'
+import React, { useCallback, useEffect, useRef, useState } from "react"
+
+import { debounce,DimensionsBox } from "@/src/components/image-frame-calculator/image-frame-calculator.component"
 import {
   Container,
   Flex,
@@ -12,21 +17,21 @@ import {
   Section,
 } from "@/src/components/nextgen-core-ui"
 import { Img } from "@/src/components/utils/img.component"
+import type { ShoppingCartItem} from "@/src/context/global-context";
+import { useGlobalContext } from "@/src/context/global-context"
+
 import type {
   PieceQuery,
   PieceVariantQuery,
 } from "../../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
+import type { VariantIdType } from "../../(pieces-slug-core)/(pieces-slug-destination)/page"
+import { ProductAccordions } from "./(parts)/product-accordion"
+import { ProductDescription } from "./(parts)/product-description"
 import { ProductSelected } from "./(parts)/product-selected.component"
 import ProductSliderContainer from "./(parts)/product-slider-container.component"
 import { ProductSwatches } from "./(parts)/product-swatches.component"
-import { ProductAccordions } from "./(parts)/product-accordion"
 import { ShippingSection } from "./(parts)/shipping-section.component"
-import { ProductDescription } from "./(parts)/product-description"
 import { SpecialistSection } from "./(parts)/specialist-section.component"
-import Link from "next/link"
-import { ShoppingCartItem, useGlobalContext } from "@/src/context/global-context"
-import { VariantIdType } from "../../(pieces-slug-core)/(pieces-slug-destination)/page"
-import { DimensionsBox, debounce } from "@/src/components/image-frame-calculator/image-frame-calculator.component"
 
 export const MobileProductPage2: React.FC<PieceQuery & { variant: VariantIdType, pieceSlug: string }> = (props) => {
   const router = useRouter()
@@ -236,7 +241,7 @@ export const MobileProductPage2: React.FC<PieceQuery & { variant: VariantIdType,
           }
           {/* Image Size Slider */}
           {props.sizeConfigurable &&
-            <div className="flex flex-col items-start border justify-center">
+            <div className="flex flex-col items-start justify-center border">
               <div className="mt-4 flex">
                 <label className="mr-2">Width: {width} (cm)</label>
                 <input
@@ -259,8 +264,8 @@ export const MobileProductPage2: React.FC<PieceQuery & { variant: VariantIdType,
               </div>
               {sizeSliderActive && (
                 <div className="flex gap-4">
-                  <button className="px-4 border rounded mt-4" onClick={() => setSizeSliderActive(false)}>Done</button>
-                  <button className="px-4 border rounded mt-4" onClick={() => {
+                  <button className="mt-4 rounded border px-4" onClick={() => setSizeSliderActive(false)}>Done</button>
+                  <button className="mt-4 rounded border px-4" onClick={() => {
                     setDefaultSize(true)
                     setWidth(initialWidth)
                     setHeight(initialHeight)

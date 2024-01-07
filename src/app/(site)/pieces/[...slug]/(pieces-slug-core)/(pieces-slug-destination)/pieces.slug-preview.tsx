@@ -1,10 +1,11 @@
 "use client"
 
+import { PreviewLoadingErrorHOC } from "@/src/components/sanity/preview-loading-error-hoc"
+
 import { PiecesSlugPage } from "../../pieces.slug-page"
 import type { PiecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
 import { piecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
-import { VariantIdType } from "./page"
-import { PreviewLoadingErrorHOC } from "@/src/components/sanity/preview-loading-error-hoc"
+import type { VariantIdType } from "./page"
 
 export const PiecesSlugPreview = ({
   initial,

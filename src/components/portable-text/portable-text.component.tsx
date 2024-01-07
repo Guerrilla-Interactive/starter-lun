@@ -1,21 +1,25 @@
-import {
-  Heading,
-  HeadingLevelType,
-  HeadingSizeType,
-} from "../layout/heading.component"
-import { ReactNode } from "react"
+import { CaretRight } from "@phosphor-icons/react"
 import { PortableText as PortableTextComponent } from "@portabletext/react"
+import type { ReactNode } from "react"
+
+import type { PortableTextProps } from "@/sanity/queries/utils/portable-text.query"
+import { cn } from "@/src/utils/cn.util"
+import { slugifyString } from "@/src/utils/slugify-string.util"
+
+import type {
+  HeadingLevelType,
+  HeadingSizeType} from "../layout/heading.component";
+import {
+  Heading
+} from "../layout/heading.component"
+import { Icon } from "../utils/icon.component"
+import { LinkResolver } from "../utils/link-resolver.component"
 import type {
   DownloadLinkObjectProps,
   ExternalLinkObjectProps,
   InternalLinkObjectProps,
-  PortableTextProps,
 } from "./portable-field.query"
-import { LinkResolver } from "../utils/link-resolver.component"
-import { CaretRight } from "@phosphor-icons/react"
-import { cn } from "@/src/utils/cn.util"
-import { Icon } from "../utils/icon.component"
-import { slugifyString } from "@/src/utils/slugify-string.util"
+
 
 export type PortableTextOptions = {
   pSize?: string

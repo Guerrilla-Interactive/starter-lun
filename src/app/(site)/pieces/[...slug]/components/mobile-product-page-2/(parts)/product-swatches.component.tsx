@@ -1,9 +1,10 @@
 import React, { useRef } from "react"
-import {
+import { useDraggable } from "react-use-draggable-scroll"
+
+import type {
   PieceVariantQuery,
   PieceVariantsQuery,
 } from "../../../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
-import { useDraggable } from "react-use-draggable-scroll"
 
 // Types for productVariant (modify as needed)
 
@@ -26,7 +27,7 @@ export const ProductSwatches: React.FC<
 
   return (
     <div
-      className="!active:cursor-grabbing mx-auto flex w-fit max-w-xl   !cursor-grab space-x-3   overflow-x-scroll scrollbar-hide md:ml-0 md:px-6 md:pl-6"
+      className="!active:cursor-grabbing mx-auto flex w-fit max-w-xl   !cursor-grab space-x-3   overflow-x-scroll scrollbar-hide md:ml-0 md:px-6"
       {...events}
       ref={ref}
     >

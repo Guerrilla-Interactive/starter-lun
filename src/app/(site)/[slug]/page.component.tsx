@@ -1,7 +1,11 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
+
 import { H2, H4 } from "@/components/layout/heading.component"
-import { PageQuery } from "./page.query"
+import { CategoryFilterSlider } from "@/src/components/category-filter-slider/category-filter-slider.component"
+import ImageFrameCalculator from "@/src/components/image-frame-calculator/image-frame-calculator.component"
+import { Input } from "@/src/components/input/input.component"
 import {
   Absolute,
   Container,
@@ -11,14 +15,12 @@ import {
   Sticky,
   VerticalSpace,
 } from "@/src/components/nextgen-core-ui"
-import { useEffect, useRef, useState } from "react"
-import { useGlobalContext } from "@/src/context/global-context"
-import { CategoryFilterSlider } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { RoundedDivider } from "@/src/components/sections/sections/hero-section/(parts)/rounded-divider.component"
-import ImageFrameCalculator from "@/src/components/image-frame-calculator/image-frame-calculator.component"
 import { Img } from "@/src/components/utils/img.component"
-import { Input } from "@/src/components/input/input.component"
-import { PieceType } from "../pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+import { useGlobalContext } from "@/src/context/global-context"
+
+import type { PieceType } from "../pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+import type { PageQuery } from "./page.query"
 
 export const PageComponent = (props: PageQuery) => {
   const heroRef = useRef<HTMLDivElement>(null)

@@ -1,11 +1,12 @@
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
+import { tClient } from "@/sanity/groqd-client"
+import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
+
 import { PiecesSlugPage } from "../../pieces.slug-page"
 import { piecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
 import { PiecesSlugPreview } from "./pieces.slug-preview"
-import { tClient } from "@/sanity/groqd-client"
-import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
 type Props = {
   params: {

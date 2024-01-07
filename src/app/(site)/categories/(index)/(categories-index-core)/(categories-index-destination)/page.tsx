@@ -1,10 +1,12 @@
+import { draftMode } from "next/headers"
+import { notFound } from "next/navigation"
+
 import { tClient } from "@/sanity/groqd-client"
 import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mobile-piece-archive-page.component"
 import { AllCategoryPieceType } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
+
 import { categoriesIndexQuery } from "../(categories-index-server)/categories.index-query"
-import { notFound } from "next/navigation"
-import { draftMode } from "next/headers"
 import { CategoriesIndexPreview } from "./categories.index.preview"
 
 export const generateMetadata = async () => {

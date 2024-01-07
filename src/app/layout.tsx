@@ -12,17 +12,18 @@ import "blaze-slider/dist/blaze.css"
 
 import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
+import { draftMode } from "next/headers"
 
 import { ClientWrapper } from "@/components/client-wrapper.component"
 import { PreviewIndicator } from "@/components/utils/preview-indicator.component"
 import { clientEnv } from "@/env/client.mjs"
 import { cn } from "@/utils/cn.util"
+
+import VisualEditing from "../components/sanity/visual-editing"
 import {
   GlobalContextProvider,
 } from "../context/global-context"
 import { NextgenContextStatusPanel } from "../context/nextgen-context-status-panel/nextgen-context-status-panel"
-import { draftMode } from "next/headers"
-import VisualEditing from "../components/sanity/visual-editing"
 
 const grotesk = localFont({
   src: [

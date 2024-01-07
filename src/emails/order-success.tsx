@@ -1,23 +1,23 @@
 import {
-	Img,
 	Body,
+	Column,
 	Container,
 	Head,
 	Heading,
-	Column,
+	Hr,
 	Html,
+	Img,
 	Preview,
+	Row,
 	Section,
 	Tailwind,
 	Text,
-	Row,
-	Hr,
 } from '@react-email/components';
 import * as React from 'react';
-import { EmailClosing } from './order-success-admin';
 import { z } from "zod"
 
 import { ShoppingCartItemSchema } from '../context/global-context';
+import { EmailClosing } from './order-success-admin';
 
 
 export type ShoppingCartItem = z.infer<typeof ShoppingCartItemSchema>
@@ -53,20 +53,20 @@ export const OrderDetails = ({ items, totalPrice }: { items: Array<ShoppingCartI
 		<Container className='w-[320px]'>
 
 			<Section className={'w-[320px]'}>
-				<Container className=" rounded-md w-[320px]">
+				<Container className=" w-[320px] rounded-md">
 					{items.map(x => (
-						<Row key={x.id} className=" bg-lunnheim-background-shade-1 p-2 mb-2 text-left ">
-							<Column className="w-[75px] h-[100px] rounded-md overflow-hidden">
+						<Row key={x.id} className=" mb-2 bg-lunnheim-background-shade-1 p-2 text-left ">
+							<Column className="h-[100px] w-[75px] overflow-hidden rounded-md">
 								<Img src={x.imageUrl} width={75} height={100} alt={x.name} className='' />
 							</Column>
-							<Column className="gap-y-0 pl-4 w-[220px] ">
+							<Column className="w-[220px] gap-y-0 pl-4 ">
 								<Text className="my-0 text-sm">{x.name}</Text>
 								<Row>
 									<Column className="w-[110px]">
 										<Text className="my-1 text-xs">{x.variant}</Text>
 									</Column>
 									<Column className="w-[110px]">
-										<Text className="my-1 text-xs text-right">NOK {x.price}</Text>
+										<Text className="my-1 text-right text-xs">NOK {x.price}</Text>
 									</Column>
 								</Row>
 							</Column>
@@ -109,23 +109,23 @@ export const OrderConfirmEmailToClient = ({ client, items }: OrderEmailProps) =>
 				},
 			}}
 		>
-			<Html className="w-full h-full   p-4 mx-auto">
+			<Html className="mx-auto h-full   w-full p-4">
 				<Head />
 				<Preview>
 					We have received your order for {itemsList}
 				</Preview>
-				<Body className='text-lunnheim-darker-olive text-center py-24 p-4   bg-lunnheim-ivory-yellow max-w-[450px]    font-sans mx-auto  rounded-xl'>
-					<Container className="w-[360px] mx-auto">
-						<Img src={"https://cdn.sanity.io/images/izge1v72/production/781ebf6062ebf02237802e33184324b22b528b34-82x98.png"} className="mx-auto pt-12 pb-4" width="35" height="45" />
+				<Body className='mx-auto max-w-[450px] rounded-xl bg-lunnheim-ivory-yellow   p-4 py-24    text-center font-sans  text-lunnheim-darker-olive'>
+					<Container className="mx-auto w-[360px]">
+						<Img src={"https://cdn.sanity.io/images/izge1v72/production/781ebf6062ebf02237802e33184324b22b528b34-82x98.png"} className="mx-auto pb-4 pt-12" width="35" height="45" />
 
-						<Heading className='text-lunnheim-olive font-thin text-lg'>
+						<Heading className='text-lg font-thin text-lunnheim-olive'>
 							Receipt from Lunnheim
 						</Heading>
 						<Text className="text-lunnheim-dark-olive">
 							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Thank you for your order.
 						</Text>
-						<Container className='text-left w-[300px]'>
-							<Container className="p-4 text-lunnheim-dark-olive w-[300px] ">
+						<Container className='w-[300px] text-left'>
+							<Container className="w-[300px] p-4 text-lunnheim-dark-olive ">
 								<Row className="w-[300px] ">
 									<Column className="w-[60px]">
 										<Text>OrderId:</Text>

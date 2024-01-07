@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react"
-import { cn } from "@/src/utils/cn.util"
-import { useGlobalContext } from "@/src/context/global-context"
+import React, { useEffect,useState } from "react"
+
 import { Absolute } from "@/src/components/nextgen-core-ui"
+import { useGlobalContext } from "@/src/context/global-context"
+import { cn } from "@/src/utils/cn.util"
 
 interface RoundedDividerProps {
   className?: string

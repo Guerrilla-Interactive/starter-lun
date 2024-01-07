@@ -35,7 +35,7 @@ export const Heading = ({
   const styles = cn(
     getSize(size),
     "font-medium",
-    divider && " border-b border-dark/10 pb-[0.3em]",
+    divider && " border-dark/10 border-b pb-[0.3em]",
     className
   )
 

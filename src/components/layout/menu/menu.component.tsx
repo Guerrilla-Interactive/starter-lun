@@ -1,6 +1,6 @@
 "use client"
 
-import type { MenuSettings } from "@/lib/queries/settings/settings.query"
+import type { MenuSettings } from "@/sanity/queries/settings/settings.query"
 
 import { CollapsedMenu } from "./collapsed-menu.component"
 import { ExpandedMenu } from "./expanded-menu.component"

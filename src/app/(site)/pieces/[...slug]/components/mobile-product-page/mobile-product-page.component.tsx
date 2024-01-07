@@ -2,7 +2,8 @@
 
 import "keen-slider/keen-slider.min.css"
 
-import { KeenSliderPlugin, useKeenSlider } from "keen-slider/react"
+import type { KeenSliderPlugin} from "keen-slider/react";
+import { useKeenSlider } from "keen-slider/react"
 import React, { useEffect, useRef, useState } from "react"
 
 import {
@@ -15,7 +16,6 @@ import {
 } from "@/src/components/nextgen-core-ui"
 import Sticky from "@/src/components/nextgen-core-ui/sticky.component/sticky.component"
 import VerticalSpace from "@/src/components/nextgen-core-ui/vertical-space.component"
-
 import { Img } from "@/src/components/utils/img.component"
 
 import type {
@@ -23,14 +23,13 @@ import type {
   PieceVariantQuery,
 } from "../../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
 import MaterialFilterTabs from "./(parts)/material-filter-tabs.component"
+import { ProductAccordions } from "./(parts)/product-accordion"
+import { ProductCtaButtons } from "./(parts)/product-cta-buttons.component"
+import { ProductDescription } from "./(parts)/product-description"
 import { ProductSelected } from "./(parts)/product-selected.component"
 import ProductSliderContainer from "./(parts)/product-slider-container.component"
 import { ProductSwatches } from "./(parts)/product-swatches.component"
-
-import { ProductAccordions } from "./(parts)/product-accordion"
 import { ShippingSection } from "./(parts)/shipping-section.component"
-import { ProductCtaButtons } from "./(parts)/product-cta-buttons.component"
-import { ProductDescription } from "./(parts)/product-description"
 import { SpecialistSection } from "./(parts)/specialist-section.component"
 
 export const MobileProductPage: React.FC<PieceQuery> = (props) => {

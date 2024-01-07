@@ -2,9 +2,9 @@
 
 import type { Stripe } from 'stripe'
 
+import { stripe } from '@/lib/stripe'
 import { CURRENCY } from '@/src/stripe/stripe-config'
 import { formatAmountForStripe } from '@/utils/stripe-helpers'
-import { stripe } from '@/lib/stripe'
 
 export async function createPaymentIntent(
   data: FormData

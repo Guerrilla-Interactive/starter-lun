@@ -5,10 +5,7 @@ import { CaretDown } from "@phosphor-icons/react"
 import { Fragment } from "react"
 
 import { LinkResolver } from "@/components/utils/link-resolver.component"
-import type {
-  LinkGroupProps,
-  LinkPropsWithGroup,
-} from "@/lib/queries/navigation/links.query"
+import type { LinkGroupProps, LinkPropsWithGroup } from "@/sanity/queries/navigation/links.query"
 import { cn } from "@/utils/cn.util"
 
 export const MenuItem = ({ item }: { item: LinkPropsWithGroup }) => {

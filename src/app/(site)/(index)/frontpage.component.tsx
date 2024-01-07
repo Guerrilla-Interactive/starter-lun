@@ -4,9 +4,9 @@
 
 import { useEffect, useRef, useState } from "react"
 
-
 import { H2, H3, H4 } from "@/components/layout/heading.component"
 import { AllCategoryPieceType, CategoryFilterSlider } from "@/src/components/category-filter-slider/category-filter-slider.component"
+import { Input } from "@/src/components/input/input.component"
 import {
   Absolute,
   Container,
@@ -21,13 +21,12 @@ import {
 import { PieceGrid } from "@/src/components/piece-grid/piece-grid.component"
 import { RoundedDivider } from "@/src/components/sections/sections/hero-section/(parts)/rounded-divider.component"
 import { Img } from "@/src/components/utils/img.component"
-
 import { useGlobalContext } from "@/src/context/global-context"
+
 import type { PageQuery } from "../[slug]/page.query"
-import {
+import type {
   PieceType,
 } from "../pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
-import { Input } from "@/src/components/input/input.component"
 
 export const FrontPageComponent = (props: PageQuery) => {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -170,7 +169,7 @@ export const FrontPageComponent = (props: PageQuery) => {
 
 
 
-        <Container declarativeOnly className="md:max-w-screen-wide md:container max-w-[100vw] justify-center items-center place-items-center mx-auto self-center" >
+        <Container declarativeOnly className="mx-auto max-w-[100vw] place-items-center items-center justify-center self-center md:container md:max-w-screen-wide" >
           <Img
             image={props?.heroSection?.image as any}
             className="mx-auto"
@@ -219,15 +218,15 @@ export const FrontPageComponent = (props: PageQuery) => {
 
 
       <Section className=" border-lunnheim-dark-olive border-opacity-25   py-6">
-        <Container maxWidth='wide' className="border-l border-r border-b border-lunnheim-dark-olive w-full  border-opacity-25  min-h-[40rem] flex py-24 flex-col ">
+        <Container maxWidth='wide' className="flex min-h-[40rem] w-full flex-col border-x  border-b  border-lunnheim-dark-olive border-opacity-25 py-24">
           <Container maxWidth="narrow" className="text-center">
 
           </Container>
-          <Container maxWidth="wide" className="text-center relative">
-            <FlexRow className="w-full justify-around items-center gap-x-80 min-h-[35rem]">
+          <Container maxWidth="wide" className="relative text-center">
+            <FlexRow className="min-h-[35rem] w-full items-center justify-around gap-x-80">
 
-              <FlexCol className="content-center justify-center rtl h-full pl-14">
-                <h2 className="text-4xl gap-y-3 font-serif font-light text-right flex justify-end  flex-col">
+              <FlexCol className="rtl h-full content-center justify-center pl-14">
+                <h2 className="flex flex-col justify-end gap-y-3 text-right font-serif text-4xl  font-light">
                   <FlexRow className="self-end justify-self-end">
                     About
                   </FlexRow>
@@ -240,13 +239,13 @@ export const FrontPageComponent = (props: PageQuery) => {
                 </h2>
               </FlexCol>
 
-              <Absolute className="w-[30rem] h-[15rem] bg-lunnheim-dusty-pink bg-opacity-50 my-auto top-[20%] rounded-full left-0 right-0 mx-auto origin-center">
+              <Absolute className="inset-x-0 top-[20%] m-auto h-[15rem] w-[30rem] origin-center rounded-full bg-lunnheim-dusty-pink bg-opacity-50">
 
               </Absolute>
-              <Absolute className="w-[30rem] h-[15rem] bg-lunnheim-vibrant-yellow bg-opacity-50 my-auto top-[35%] rounded-full left-0 right-0 mx-auto origin-center">
+              <Absolute className="inset-x-0 top-[35%] m-auto h-[15rem] w-[30rem] origin-center rounded-full bg-lunnheim-vibrant-yellow bg-opacity-50">
 
               </Absolute>
-              <Absolute className="w-[30rem] h-[15rem] bg-lunnheim-olive bg-opacity-50 my-auto top-[50%] rounded-full left-0 right-0 mx-auto origin-center">
+              <Absolute className="inset-x-0 top-[50%] m-auto h-[15rem] w-[30rem] origin-center rounded-full bg-lunnheim-olive bg-opacity-50">
 
               </Absolute>
 
@@ -254,8 +253,8 @@ export const FrontPageComponent = (props: PageQuery) => {
 
 
 
-              <FlexCol className="content-center justify-center rtl h-full">
-                <h2 className="text-base gap-y-1 font-serif font-light text-right flex justify-end  flex-col">
+              <FlexCol className="rtl h-full content-center justify-center">
+                <h2 className="flex flex-col justify-end gap-y-1 text-right font-serif text-base  font-light">
                   <FlexRow>
                     Lunnheim, sweet home.
                   </FlexRow>
@@ -288,11 +287,11 @@ export const FrontPageComponent = (props: PageQuery) => {
 
 
       <Section className="h-full ">
-        <Container ref={containerRef} className="w-full py-44 text-center max-w-2xl">
+        <Container ref={containerRef} className="w-full max-w-2xl py-44 text-center">
 
           <GapY gap-y-8>
 
-            <FlexCol className="gap-y-4 items-center">
+            <FlexCol className="items-center gap-y-4">
               <svg width="46" height="50" viewBox="0 0 36 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 43C27.9462 43 36 33.3829 36 21.5C36 9.61707 27.9462 0 18 0C8.05376 0 0 9.61707 0 21.5C0 33.3829 8.05376 43 18 43ZM18 42.0755C9.06919 42.0755 1.84665 32.3657 1.84665 21.5C1.84665 10.6343 9.06919 0.924523 18 0.924523C26.9308 0.924523 34.1534 10.6573 34.1534 21.5C34.1534 32.3427 26.907 42.0755 18 42.0755Z" fill="#474224" />
                 <g clipPath="url(#clip0_232_2)">
@@ -308,11 +307,11 @@ export const FrontPageComponent = (props: PageQuery) => {
                 </defs>
               </svg>
 
-              <H3 className="   text-lunnheim-dark-olive font-serif  ">Take a piece with you</H3>
-              <p className="opacity-60 font-light font-serif text-xl">Get updates about our latest pieces</p>
+              <H3 className="   font-serif text-lunnheim-dark-olive  ">Take a piece with you</H3>
+              <p className="font-serif text-xl font-light opacity-60">Get updates about our latest pieces</p>
             </FlexCol>
             <Input label="Email address" />
-            <span className="px-12 py-2 rounded-md bg-lunnheim-olive text-lunnheim-ivory-yellow  max-w- mx-auto text-sm">Subscribe</span>
+            <span className="max-w- mx-auto rounded-md bg-lunnheim-olive px-12  py-2 text-sm text-lunnheim-ivory-yellow">Subscribe</span>
           </GapY>
         </Container>
       </Section>

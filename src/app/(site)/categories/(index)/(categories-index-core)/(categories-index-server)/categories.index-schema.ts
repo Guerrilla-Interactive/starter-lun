@@ -1,7 +1,8 @@
+import { defineType } from "sanity"
+
 import { metaFields } from "@/sanity/schemas/generator-field/meta-fields.field"
 import { stringField } from "@/sanity/schemas/generator-field/string.field"
 import { defaultGroups } from "@/sanity/schemas/utils/default-groups.util"
-import { defineType } from "sanity"
 
 export const categoriesIndexSchema = defineType({
 	type: "document",

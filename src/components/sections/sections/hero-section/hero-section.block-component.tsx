@@ -4,8 +4,7 @@ import { CaretRight } from "@phosphor-icons/react"
 import { useEffect, useRef, useState } from "react"
 
 import { H1 } from "@/components/layout/heading.component"
-import { PageQuery } from "@/src/app/(site)/[slug]/page.query"
-import { useGlobalContext } from "@/src/context/global-context"
+import type { PageQuery } from "@/src/app/(site)/[slug]/page.query"
 import { Button } from "@/src/components/button/button.component"
 import { Img } from "@/src/components/image-component/img.component"
 import {
@@ -19,6 +18,7 @@ import {
   Sticky,
 } from "@/src/components/nextgen-core-ui"
 import { LinkResolver } from "@/src/components/utils/link-resolver.component"
+import { useGlobalContext } from "@/src/context/global-context"
 
 import HeroContent from "./hero-content.component"
 

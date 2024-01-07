@@ -1,5 +1,6 @@
+import type { BlazeConfig } from "blaze-slider";
+import BlazeSlider from "blaze-slider"
 import React from "react"
-import BlazeSlider, { BlazeConfig } from "blaze-slider"
 
 export function useBlazeSlider(config: BlazeConfig) {
   const sliderRef = React.useRef<BlazeSlider | null>(null)

@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from "react"
+
 import { Container } from "../nextgen-core-ui"
 
 export const Occupier = ({

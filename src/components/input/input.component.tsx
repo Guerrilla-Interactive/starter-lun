@@ -1,6 +1,7 @@
+import * as React from "react";
+
 import { COLORS } from "@/src/styles/theme";
 import { cn } from "@/src/utils/cn.util";
-import * as React from "react";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
@@ -32,11 +33,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
 
         return (
-            <div className="relative max-w-sm mx-auto w-96">
+            <div className="relative mx-auto w-96 max-w-sm">
                 <input
                     type={type}
                     id={props.id}
-                    className={`flex h-9 w-full rounded-lg border-2 bg-transparent px-3 py-6 text-sm shadow-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+                    className={`placeholder:text-muted-foreground flex h-9 w-full rounded-lg border-2 bg-transparent px-3 py-6 text-sm shadow-sm outline-none file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
                     ref={ref}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -45,7 +46,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 />
                 <label
                     htmlFor={props.id}
-                    className={cn("absolute mx-auto  left-4 -top-3  px-2 font-grotesk text-sm  bg-lunnheim-ivory-yellow")}
+                    className={cn("absolute -top-3  left-4 mx-auto  bg-lunnheim-ivory-yellow px-2 font-grotesk  text-sm")}
                     style={{ ...labelTextStyle, ...labelStyle }}
                 >
                     {label}

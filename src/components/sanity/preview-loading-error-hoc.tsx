@@ -1,6 +1,7 @@
 "use client"
 
-import { UseQueryOptionsDefinedInitial, useQuery } from "@sanity/react-loader"
+import type { UseQueryOptionsDefinedInitial} from "@sanity/react-loader";
+import { useQuery } from "@sanity/react-loader"
 
 type DataComponentFn<T> = (data: T) => JSX.Element
 

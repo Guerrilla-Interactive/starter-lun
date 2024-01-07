@@ -1,20 +1,21 @@
 "use client"
 
+import { usePathname } from "next/navigation"
+import type {
+  Dispatch,
+  ReactNode,  SetStateAction} from "react";
 import React, {
   createContext,
   useContext,
-  useState,
   useEffect,
-  Dispatch,
-  SetStateAction,
-  ReactNode,
-} from "react"
-import useScrollbarWidth from "./context-hooks/calculate-scrollbar-width.utility"
-import { usePathname } from "next/navigation"
-import { useLocalStorage } from "@/src/utils/hooks/use-local-storage";
-import { OrderEmailProps } from "@/src/emails/order-success";
+  useState} from "react"
 import * as z from "zod"
-import { PieceQuery, PieceType } from "../app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries";
+
+import type { OrderEmailProps } from "@/src/emails/order-success";
+import { useLocalStorage } from "@/src/utils/hooks/use-local-storage";
+
+import type { PieceQuery, PieceType } from "../app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries";
+import useScrollbarWidth from "./context-hooks/calculate-scrollbar-width.utility"
 
 
 type MenuItemType = {

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { useDraggable } from "react-use-draggable-scroll"
-import {
+
+import type {
   PieceVariantQuery,
   PieceVariantsQuery,
 } from "../../pieces-shared-utils/pieces-queries/pieces.shared-queries"

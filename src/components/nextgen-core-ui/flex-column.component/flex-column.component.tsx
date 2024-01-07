@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react"
 
+import type { BaseProps } from "../flex.component/flex"
 import Flex from "../flex.component/flex.component"
-import { BaseProps } from "../flex.component/flex"
 
 /**
  * FlexCol component - A flex column layout component.

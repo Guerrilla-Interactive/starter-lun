@@ -1,7 +1,9 @@
 import type { ArrayDefinition } from "sanity"
 import { defineField } from "sanity"
+
+import type { FieldDef } from "@/sanity/schemas/generator-field/field.types"
+
 import * as sectionBlocks from "./section-block.schemas"
-import { FieldDef } from "@/sanity/schemas/generator-field/field.types"
 
 const SECTION_BLOCK_NAMES = Object.values(sectionBlocks).map((section) => ({
   type: section.name,

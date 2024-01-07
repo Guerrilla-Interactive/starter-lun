@@ -1,9 +1,11 @@
 "use client"
 
 import React from "react"
-import { cn } from "@/utils/cn.util"
+import { animated,useSprings } from "react-spring"
+
 import { useGlobalContext } from "@/src/context/global-context"
-import { useSprings, animated } from "react-spring"
+import { cn } from "@/utils/cn.util"
+
 import { Absolute, Relative } from "../../nextgen-core-ui"
 
 interface ToggleProps {

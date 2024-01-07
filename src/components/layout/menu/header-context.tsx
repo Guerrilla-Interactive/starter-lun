@@ -1,9 +1,10 @@
+import type {
+  ReactNode} from "react";
 import {
   createContext,
+  SetStateAction,
   useContext,
   useState,
-  ReactNode,
-  SetStateAction,
 } from "react"
 
 // Context Definition

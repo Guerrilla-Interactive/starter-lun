@@ -1,5 +1,6 @@
-import Stripe from "stripe";
 import { NextResponse } from "next/server";
+import Stripe from "stripe";
+
 import { clientEnv } from "@/src/env/client.mjs";
 
 const stripe = new Stripe(clientEnv.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "", {

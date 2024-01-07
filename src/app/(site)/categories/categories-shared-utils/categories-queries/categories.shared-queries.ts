@@ -1,5 +1,7 @@
+import type {TypeFromSelection } from "groqd";
+import { q } from "groqd"
+
 import { metadataQuery } from "@/sanity/queries/utils/metadata.query"
-import { TypeFromSelection, q } from "groqd"
 
 export const categoryQueryPreviewSelection = {
 	title: q.string(),

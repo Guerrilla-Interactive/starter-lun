@@ -1,9 +1,11 @@
 "use client"
 
-import { PreviewLoadingErrorHOC } from "@/src/components/sanity/preview-loading-error-hoc"
-import { CategoriesSlugQuery, categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
 import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mobile-piece-archive-page.component"
 import { AllCategoryPieceType } from "@/src/components/category-filter-slider/category-filter-slider.component"
+import { PreviewLoadingErrorHOC } from "@/src/components/sanity/preview-loading-error-hoc"
+
+import type { CategoriesSlugQuery} from "../(categories-slug-server)/categories.slug-query";
+import { categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
 
 export const CategoriesSlugPreview = ({
 	initial,

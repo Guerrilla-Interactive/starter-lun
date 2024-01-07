@@ -1,6 +1,7 @@
 "use client"
-import { useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
+import { useEffect,useState } from "react"
+
 import { LunnheimLogo } from "@/sanity/desk/theme/lunnheim-logo.component"
 
 export const AnimatedIntro: React.FC = () => {

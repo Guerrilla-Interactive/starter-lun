@@ -1,12 +1,14 @@
 "use client"
 
-import React, { useRef, useEffect, useMemo, useCallback } from "react"
+import React, { useCallback,useEffect, useMemo, useRef } from "react"
 import { useDraggable } from "react-use-draggable-scroll"
-import { Flex } from "../nextgen-core-ui"
-import { H3 } from "../layout/heading.component"
+
+import type { PieceQuery, PieceType } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
 import { useGlobalContext } from "@/src/context/global-context"
+
 import type { IconType } from "../icons/icons.component"
-import { PieceQuery, PieceType } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+import { H3 } from "../layout/heading.component"
+import { Flex } from "../nextgen-core-ui"
 
 export interface CateogrySliderCategory {
   name: string
@@ -95,7 +97,7 @@ export const CategoryFilterSlider: React.FC<CategoryFilterSliderProps> = ({ cate
   return (
     <Flex
       style={style}
-      className={`cursor-grab animate-fadeIn flex-nowrap space-x-12 overflow-x-scroll scrollbar-hide md:space-x-28 ${className}`}
+      className={`animate-fadeIn cursor-grab flex-nowrap space-x-12 overflow-x-scroll scrollbar-hide md:space-x-28 ${className}`}
       {...events}
       ref={ref}
     >

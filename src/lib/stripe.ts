@@ -1,6 +1,7 @@
 import 'server-only'
 
 import Stripe from 'stripe'
+
 import { serverEnv } from '../env/server.mjs'
 
 export const stripe = new Stripe(serverEnv.STRIPE_SECRET_KEY as string, {

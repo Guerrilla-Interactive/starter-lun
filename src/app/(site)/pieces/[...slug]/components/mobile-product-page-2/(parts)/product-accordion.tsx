@@ -50,7 +50,7 @@ export const ProductAccordions: React.FC<ProductAccordionsProps> = (props) => {
                   {props.dimensions.map((dimension, index) => (
                     <Flex
                       key={index}
-                      className="my-auto items-center last-of-type:border-b-0  border-b-[1px] border-lunnheim-pale-yellow border-opacity-50 py-4"
+                      className="my-auto items-center border-b-[1px]  border-lunnheim-pale-yellow border-opacity-50 py-4 last-of-type:border-b-0"
                     >
                       <FlexCol className="w-[35%] text-xxs opacity-50">
                         {dimension.title}

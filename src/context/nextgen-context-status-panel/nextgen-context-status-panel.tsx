@@ -1,9 +1,13 @@
 "use client"
 
-import React, { useState, FC } from "react"
+import type { FC } from "react";
+import React, { useState } from "react"
+
 import {
   useGlobalContext,
 } from "@/src/context/global-context"
+import { cn } from "@/src/utils/cn.util"
+
 import {
   Fixed,
   Flex,
@@ -11,7 +15,6 @@ import {
   FlexRow,
 } from "../../components/nextgen-core-ui"
 import TogglePanel from "./utilities/toggle-panel.component"
-import { cn } from "@/src/utils/cn.util"
 
 type Tab =
   | "generalData"
@@ -72,7 +75,7 @@ const DataRow: FC<{ data: Record<string, any> }> = ({ data }) => (
   <>
     {Object.keys(data).map((key) => (
       <FlexRow
-        className="justify-between max-h-[300px] scrollbar-hide overflow-y-scroll overflow-x-scroll gap-x-2 border-b border-b-gray-400 border-opacity-20 py-4 "
+        className="max-h-[300px] justify-between gap-x-2 overflow-scroll border-b border-b-gray-400 border-opacity-20 py-4 scrollbar-hide"
         key={key}
       >
         <FlexRow className="gap-x-4">

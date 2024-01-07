@@ -1,9 +1,13 @@
 "use client"
 
 import "keen-slider/keen-slider.min.css"
+
 import { useKeenSlider } from "keen-slider/react"
 import { useRouter } from 'next/navigation'
 import React, { useState } from "react"
+
+import { AllCategoryPieceType, CategoryFilterSlider, } from "@/src/components/category-filter-slider/category-filter-slider.component"
+import { H1 } from "@/src/components/layout/heading.component"
 import {
   Container,
   FlexCol,
@@ -13,14 +17,13 @@ import {
   Section,
 } from "@/src/components/nextgen-core-ui"
 import { Img } from "@/src/components/utils/img.component"
-import { H1 } from "@/src/components/layout/heading.component"
 import { LinkResolver } from "@/src/components/utils/link-resolver.component"
-import { PiecesIndexQuery, PiecesQuery } from "../(pieces-index-core)/(pieces-index-server)/pieces.index-query"
-import { ArchiveSwatches } from "./archive-swatches.component"
-import { PieceQuery } from "../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
 import { useGlobalContext } from "@/src/context/global-context"
-import { AllCategoryPieceType, CategoryFilterSlider, } from "@/src/components/category-filter-slider/category-filter-slider.component"
-import { CategoryQueryType } from "../../../categories/categories-shared-utils/categories-queries/categories.shared-queries"
+
+import type { CategoryQueryType } from "../../../categories/categories-shared-utils/categories-queries/categories.shared-queries"
+import type { PieceQuery } from "../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
+import type { PiecesIndexQuery, PiecesQuery } from "../(pieces-index-core)/(pieces-index-server)/pieces.index-query"
+import { ArchiveSwatches } from "./archive-swatches.component"
 
 export const PieceItem: React.FC<{ piece: PieceQuery }> = ({ piece }) => {
   const images =

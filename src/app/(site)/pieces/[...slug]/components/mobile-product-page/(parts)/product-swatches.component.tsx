@@ -1,9 +1,10 @@
 import React, { useRef } from "react"
-import {
+import { useDraggable } from "react-use-draggable-scroll"
+
+import type {
   PieceVariantQuery,
   PieceVariantsQuery,
 } from "../../../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
-import { useDraggable } from "react-use-draggable-scroll"
 
 // Types for productVariant (modify as needed)
 

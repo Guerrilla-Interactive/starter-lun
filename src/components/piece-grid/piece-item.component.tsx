@@ -1,9 +1,11 @@
 import React, { useState } from "react"
-import { PieceQuery } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+
+import type { PieceQuery } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+
+import { H5 } from "../layout/heading.component"
 import { Container, FlexCol, GapY } from "../nextgen-core-ui"
 import { Img } from "../utils/img.component"
 import { LinkResolver } from "../utils/link-resolver.component"
-import { H5 } from "../layout/heading.component"
 
 interface PieceItemProps {
   piece: PieceQuery;
@@ -32,7 +34,7 @@ export const PieceItem: React.FC<PieceItemProps> = ({ piece, isCentered = false 
   const showSecondaryImage = isCentered || (isHovered && secondaryImage);
   return (
     <div className="group" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <FlexCol className="w-[265px] max-w-[265px] transition-all duration-500 group-active:opacity-80 md:group-hover:mb-1 md:group-hover:-mt-1 md:group-active:scale-95">
+      <FlexCol className="w-[265px] max-w-[265px] transition-all duration-500 group-active:opacity-80 md:group-hover:-mt-1 md:group-hover:mb-1 md:group-active:scale-95">
         <LinkResolver
           className="group !z-50 transition-all duration-100 lg:even:mt-28"
           linkType="internal"

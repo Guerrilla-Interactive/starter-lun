@@ -1,5 +1,7 @@
 import React from "react"
-import { Icon, IconType } from "../icons/icons.component"
+
+import type { IconType } from "../icons/icons.component";
+import { Icon } from "../icons/icons.component"
 import { FlexCol } from "../nextgen-core-ui"
 
 interface BentoGridProps {

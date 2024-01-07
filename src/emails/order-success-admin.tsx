@@ -1,17 +1,19 @@
 import {
 	Body,
 	Container,
-	Heading,
 	Head,
+	Heading,
 	Hr,
 	Html,
-	Preview,
 	Img,
+	Preview,
 	Section,
 	Tailwind,
 	Text,
 } from '@react-email/components';
-import { OrderDetails, OrderEmailProps } from "./order-success"
+
+import type { OrderEmailProps } from "./order-success";
+import { OrderDetails } from "./order-success"
 
 export const OrderConfirmEmailToAdmin = ({ client, items }: OrderEmailProps) => {
 	const itemsList = items.map(x => x.name).join(", ")
@@ -32,7 +34,7 @@ export const OrderConfirmEmailToAdmin = ({ client, items }: OrderEmailProps) => 
 				<Preview>
 					New order by {client.firstName} for {itemsList}
 				</Preview>
-				<Body className='bg-white text-black font-sans'>
+				<Body className='bg-white font-sans text-black'>
 					<Heading>
 						You have received a new order as follows:
 					</Heading>
@@ -76,7 +78,7 @@ export const OrderConfirmEmailToAdmin = ({ client, items }: OrderEmailProps) => 
 export function EmailClosing() {
 	return (<Container>
 
-		<Hr className={'border-t-lunnheim-pale-yellow mt-4 w-[320px]'} />
+		<Hr className={'mt-4 w-[320px] border-t-lunnheim-pale-yellow'} />
 		<Text className='w-[320px]'>
 
 			Best regards,

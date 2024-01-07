@@ -1,10 +1,12 @@
 "use client"
 import { Dialog, Transition } from "@headlessui/react"
 import { Fragment, } from "react"
+
+import type { MainMenu } from "@/sanity/queries/settings/settings.query"
+import { useGlobalContext } from "@/src/context/global-context"
+
 import { MenuItem } from "./menu-item.component"
 import { MenuToggle } from "./menu-toggle.component"
-import { MainMenu } from "@/lib/queries/settings/settings.query"
-import { useGlobalContext } from "@/src/context/global-context"
 
 export const CollapsedMenu = ({ mainMenu }: { mainMenu: MainMenu }) => {
   const { globalData, setGlobalData } = useGlobalContext()

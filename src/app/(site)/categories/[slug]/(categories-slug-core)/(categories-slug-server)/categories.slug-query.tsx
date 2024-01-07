@@ -1,10 +1,11 @@
 import type { InferType } from "groqd"
 import { q } from "groqd"
 
-import { piecesQuery } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
-import { categoriesQuery } from "../../../categories-shared-utils/categories-queries/categories.shared-queries"
 import { notDraft } from "@/sanity/not-draft.query"
 import { basePageQuery } from "@/sanity/queries/utils/base-page.query"
+import { piecesQuery } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+
+import { categoriesQuery } from "../../../categories-shared-utils/categories-queries/categories.shared-queries"
 
 export const categoriesSlugQuery = q("*")
 	.filterByType("category")

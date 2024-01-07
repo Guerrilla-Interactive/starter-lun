@@ -1,7 +1,9 @@
-import { InferType, q } from "groqd"
+import type { InferType} from "groqd";
+import { q } from "groqd"
 
 import { metadataQuery } from "@/sanity/queries/utils/metadata.query"
 import { piecesQuery } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+
 import { categoriesQuery } from "../../../categories-shared-utils/categories-queries/categories.shared-queries"
 
 export const categoriesIndexQuery = q("*")

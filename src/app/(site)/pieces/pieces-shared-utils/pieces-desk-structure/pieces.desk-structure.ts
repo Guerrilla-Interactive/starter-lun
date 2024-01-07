@@ -1,8 +1,10 @@
+import { Stool } from "@phosphor-icons/react"
+import type { StructureBuilder, StructureResolverContext } from "sanity/desk"
+
 import { singletonListItem } from "@/sanity/desk/structure/utils/singleton-list-item.desk"
 import { setIcon } from "@/src/components/utils/icon.component"
-import { StructureBuilder, StructureResolverContext } from "sanity/desk"
+
 import { piecesIndexSchema } from "../../(index)/(pieces-index-core)/(pieces-index-server)/pieces.index-schema"
-import { Stool } from "@phosphor-icons/react"
 
 export const piecesDeskStructure = (
   S: StructureBuilder,
