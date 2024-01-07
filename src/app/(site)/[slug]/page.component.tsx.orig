@@ -1,0 +1,45 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+
+import { H2, H4 } from "@/components/layout/heading.component"
+import { CategoryFilterSlider } from "@/src/components/category-filter-slider/category-filter-slider.component"
+import ImageFrameCalculator from "@/src/components/image-frame-calculator/image-frame-calculator.component"
+import { Input } from "@/src/components/input/input.component"
+import {
+  Absolute,
+  Container,
+  GapY,
+  Relative,
+  Section,
+  Sticky,
+  VerticalSpace,
+} from "@/src/components/nextgen-core-ui"
+<<<<<<< HEAD
+import { RoundedDivider } from "@/src/components/sections/sections/hero-section/(parts)/rounded-divider.component"
+import { Img } from "@/src/components/utils/img.component"
+import { useGlobalContext } from "@/src/context/global-context"
+
+import type { PieceType } from "../pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
+import type { PageQuery } from "./page.query"
+=======
+import { useEffect, useRef, useState } from "react"
+import { useGlobalContext } from "../../context/global-context"
+
+import { RoundedDivider } from "@/src/components/sections/sections/hero-section/(parts)/rounded-divider.component"
+
+import { Img } from "@/src/components/utils/img.component"
+import { Input } from "@/src/components/input/input.component"
+
+>>>>>>> refs/remotes/origin/main
+
+export const PageComponent = (props: PageQuery) => {
+
+  return (
+    <>
+      <Section className="">
+
+      </Section>
+    </>
+  )
+}

@@ -2,16 +2,15 @@
 
 import Link from "next/link"
 import type { ForwardedRef, MouseEvent, ReactNode } from "react"
-import { forwardRef, useEffect, useState } from "react"
+import { forwardRef, } from "react"
 
 import { resolvePath } from "@/lib/navigation/resolve-path.util"
 import type {
-  AnchorLinkProps,
   DownloadLinkProps,
   ExternalLinkProps,
   InternalLinkProps,
   LinkProps,
-} from "@/lib/queries/navigation/links.query"
+} from "@/sanity/queries/navigation/links.query"
 import { cn } from "@/utils/cn.util"
 
 type LinkResolverProps = {
@@ -53,7 +52,6 @@ const InternalLink = ({
   link,
   className,
   children,
-  onClick,
   blank,
   linkStyle,
 }: InternalLinkProps &
@@ -75,52 +73,12 @@ const InternalLink = ({
   )
 }
 
-const AnchorLink = ({
-  forwardedRef,
-  link,
-  className,
-  children,
-  onClick,
-  linkStyle,
-}: AnchorLinkProps &
-  LinkResolverProps & { forwardedRef: ForwardedRef<HTMLAnchorElement> }) => {
-  const { id } = link ?? {}
-
-  const [target, setTarget] = useState<HTMLElement | null>(null)
-
-  useEffect(() => {
-    setTarget(document.getElementById(id))
-  }, [id])
-
-  const handleAnchorLinkClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    if (!target) return
-    target.scrollIntoView({ behavior: "smooth" })
-  }
-
-  if (!id) return <>{children}</>
-
-  return (
-    <Link
-      ref={forwardedRef}
-      onClick={(e) => {
-        handleAnchorLinkClick(e)
-        onClick && onClick(e)
-      }}
-      href={`#${id}`}
-      className={cn("group", className, linkStyle)}
-    >
-      {children}
-    </Link>
-  )
-}
 
 const ExternalLink = ({
   forwardedRef,
   link,
   className,
   children,
-  hideIcon,
   linkType,
   onClick,
   blank,

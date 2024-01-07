@@ -1,6 +1,6 @@
 export default function StripeTestCards(): JSX.Element {
   return (
-    <div className="test-card-notice">
+    <div className="">
       Use any of the{' '}
       <a
         href="https://stripe.com/docs/testing#cards"
@@ -10,7 +10,7 @@ export default function StripeTestCards(): JSX.Element {
         Stripe test cards
       </a>{' '}
       for this demo, e.g.{' '}
-      <div className="card-number">
+      <div>
         4242<span></span>4242<span></span>4242<span></span>4242
       </div>
       .
