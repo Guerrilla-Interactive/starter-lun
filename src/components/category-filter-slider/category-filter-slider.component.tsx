@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useMemo, useCallback } from "react"
 import { useDraggable } from "react-use-draggable-scroll"
 import { Flex } from "../nextgen-core-ui"
 import { H3 } from "../layout/heading.component"
-import { useGlobalContext } from "@/src/app/context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 import type { IconType } from "../icons/icons.component"
 import { PieceQuery, PieceType } from "@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries"
 

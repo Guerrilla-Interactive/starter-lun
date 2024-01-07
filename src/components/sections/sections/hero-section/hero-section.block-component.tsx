@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 
 import { H1 } from "@/components/layout/heading.component"
 import { PageQuery } from "@/src/app/(site)/[slug]/page.query"
-import { useGlobalContext } from "@/src/app/context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 import { Button } from "@/src/components/button/button.component"
 import { Img } from "@/src/components/image-component/img.component"
 import {
@@ -24,9 +24,8 @@ import HeroContent from "./hero-content.component"
 
 export const HeroSectionComponent = (props: PageQuery) => {
   const sliderRef = useRef<HTMLDivElement>(null)
-  const { title } = props
 
-  const [sliderHeight, setSliderHeight] = useState(0)
+  const [, setSliderHeight] = useState(0)
   const { globalData, setGlobalData } = useGlobalContext()
   const { headerData } = globalData
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { cn } from "@/src/utils/cn.util"
-import { useGlobalContext } from "@/src/app/context/global-context"
-import { Absolute, Relative } from "@/src/components/nextgen-core-ui"
+import { useGlobalContext } from "@/src/context/global-context"
+import { Absolute } from "@/src/components/nextgen-core-ui"
 
 interface RoundedDividerProps {
   className?: string
@@ -93,15 +93,11 @@ export const RoundedDivider: React.FC<RoundedDividerProps> = ({
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d={`M0 ${computedHeight - 0.8804}C0 ${computedHeight - 0.8804} -${
-            effectiveWidth * 0.000475
-          } ${computedHeight * 0.150424} ${
-            effectiveWidth / 2
-          } 0.27938C${effectiveWidth} -${
-            computedHeight * 0.126134
-          } ${effectiveWidth} ${computedHeight - 0.8804} ${effectiveWidth} ${
-            computedHeight - 0.8804
-          }V${computedHeight}H0V${computedHeight - 0.8804}Z`}
+          d={`M0 ${computedHeight - 0.8804}C0 ${computedHeight - 0.8804} -${effectiveWidth * 0.000475
+            } ${computedHeight * 0.150424} ${effectiveWidth / 2
+            } 0.27938C${effectiveWidth} -${computedHeight * 0.126134
+            } ${effectiveWidth} ${computedHeight - 0.8804} ${effectiveWidth} ${computedHeight - 0.8804
+            }V${computedHeight}H0V${computedHeight - 0.8804}Z`}
           fill={color ? `var(--${color})` : "var(--lunnheim-ivory-yellow)"}
         />
       </svg>

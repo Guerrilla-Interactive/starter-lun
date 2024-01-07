@@ -15,10 +15,9 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 import { EmailClosing } from './order-success-admin';
-import { date, z } from "zod"
+import { z } from "zod"
 
-import LogoImage from './small-lunnheim-pale-yellow-logo.png'
-import { ShoppingCartItemSchema } from '../app/context/global-context';
+import { ShoppingCartItemSchema } from '../context/global-context';
 
 
 export type ShoppingCartItem = z.infer<typeof ShoppingCartItemSchema>

@@ -22,7 +22,7 @@ import { PieceGrid } from "@/src/components/piece-grid/piece-grid.component"
 import { RoundedDivider } from "@/src/components/sections/sections/hero-section/(parts)/rounded-divider.component"
 import { Img } from "@/src/components/utils/img.component"
 
-import { useGlobalContext } from "../../context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 import type { PageQuery } from "../[slug]/page.query"
 import {
   PieceType,
@@ -219,7 +219,7 @@ export const FrontPageComponent = (props: PageQuery) => {
 
 
       <Section className=" border-lunnheim-dark-olive border-opacity-25   py-6">
-        <Container maxWidth='wide' className="w-full border-l border-r border-b border-lunnheim-dark-olive w-full  border-opacity-25  min-h-[40rem] flex py-24 flex-col ">
+        <Container maxWidth='wide' className="border-l border-r border-b border-lunnheim-dark-olive w-full  border-opacity-25  min-h-[40rem] flex py-24 flex-col ">
           <Container maxWidth="narrow" className="text-center">
 
           </Container>

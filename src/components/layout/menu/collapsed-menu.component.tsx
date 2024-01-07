@@ -1,11 +1,10 @@
 "use client"
 import { Dialog, Transition } from "@headlessui/react"
-import { usePathname } from "next/navigation"
-import { Fragment, useCallback, useEffect, useState } from "react"
+import { Fragment, } from "react"
 import { MenuItem } from "./menu-item.component"
 import { MenuToggle } from "./menu-toggle.component"
 import { MainMenu } from "@/lib/queries/settings/settings.query"
-import { useGlobalContext } from "@/src/app/context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 
 export const CollapsedMenu = ({ mainMenu }: { mainMenu: MainMenu }) => {
   const { globalData, setGlobalData } = useGlobalContext()

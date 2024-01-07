@@ -20,7 +20,7 @@ import { ShoppingCartItem, useGlobalContext } from '../../context/global-context
 import { Flex, FlexCol, FlexRow } from '@/src/components/nextgen-core-ui'
 import { OrderClient, OrderEmailProps } from '@/src/emails/order-success'
 import { useLocalStorage } from '@/src/utils/hooks/use-local-storage'
-import { sendOrderEmail } from '../../actions'
+import { sendOrderEmail } from '@/src/app/actions'
 
 
 
@@ -116,25 +116,6 @@ function CheckoutForm(): JSX.Element {
       if (!elements || !stripe) return
 
       setPayment({ status: 'processing' })
-
-
-      const paymentIntentData = {
-        amount: input.price,
-        currency: CURRENCY,
-        payment_method_types: ['card'],
-        billing_details: billingDetails,
-      };
-
-
-
-
-
-
-
-
-
-
-
 
 
 

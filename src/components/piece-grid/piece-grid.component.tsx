@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useRef, useMemo, useEffect, useState, useCallback } from 'react';
-import { useDraggable } from 'react-use-draggable-scroll';
 import { PieceItem } from './piece-item.component';
 import { PieceType, PieceQuery } from '@/src/app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries';
 import { motion } from 'framer-motion';
-import { useGlobalContext } from '@/src/app/context/global-context';
-import { FlexCol, FlexRow, Flex } from '../nextgen-core-ui';
+import { useGlobalContext } from '@/src/context/global-context';
+import { FlexCol, Flex } from '../nextgen-core-ui';
 import { AllCategoryPieceType } from '../category-filter-slider/category-filter-slider.component';
 
 interface PieceGridProps {
@@ -20,7 +19,6 @@ export const PieceGrid: React.FC<PieceGridProps> = ({ pieces, activeCategory }) 
   const [visibleIndexes, setVisibleIndexes] = useState<Set<number>>(new Set());
   const observer = useRef<IntersectionObserver | null>(null);
   const itemRefs = useRef(pieces.map(() => React.createRef<HTMLDivElement>()));
-  const { events } = useDraggable(ref as any);
   const [closestIndex, setClosestIndex] = useState<number>(-1); // State to track the closest column
 
 

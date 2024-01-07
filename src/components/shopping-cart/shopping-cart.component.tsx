@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, FlexCol, FlexRow } from "../nextgen-core-ui";
-import { ShoppingCartItem, useGlobalContext } from "@/src/app/context/global-context";
+import { ShoppingCartItem, useGlobalContext } from "@/src/context/global-context";
 import { cn } from "@/src/utils/cn.util";
 import { useLocalStorage } from "@/src/utils/hooks/use-local-storage";
 

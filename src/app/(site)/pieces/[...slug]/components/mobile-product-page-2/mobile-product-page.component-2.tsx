@@ -24,7 +24,7 @@ import { ShippingSection } from "./(parts)/shipping-section.component"
 import { ProductDescription } from "./(parts)/product-description"
 import { SpecialistSection } from "./(parts)/specialist-section.component"
 import Link from "next/link"
-import { ShoppingCartItem, useGlobalContext } from "@/src/app/context/global-context"
+import { ShoppingCartItem, useGlobalContext } from "@/src/context/global-context"
 import { VariantIdType } from "../../(pieces-slug-core)/(pieces-slug-destination)/page"
 import { DimensionsBox, debounce } from "@/src/components/image-frame-calculator/image-frame-calculator.component"
 
@@ -63,7 +63,7 @@ export const MobileProductPage2: React.FC<PieceQuery & { variant: VariantIdType,
   const [currentSlide, setCurrentSlide] = React.useState(0)
   const [loaded, setLoaded] = useState(false)
 
-  const [selectedMaterial, setSelectedMaterial] = useState("All")
+  const [selectedMaterial] = useState("All")
 
   // Select appropriate initial variant!
   // If it is a variant page, display the variant
@@ -82,7 +82,7 @@ export const MobileProductPage2: React.FC<PieceQuery & { variant: VariantIdType,
 
   const MutationPlugin: KeenSliderPlugin = (slider) => {
     const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
+      mutations.forEach(function() {
         slider.moveToIdx(0)
 
         slider.update()

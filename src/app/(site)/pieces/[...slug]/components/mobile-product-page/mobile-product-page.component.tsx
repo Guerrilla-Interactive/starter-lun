@@ -9,7 +9,6 @@ import {
   Absolute,
   Container,
   Flex,
-  FlexRow,
   GapY,
   Relative,
   Section,
@@ -37,7 +36,7 @@ import { SpecialistSection } from "./(parts)/specialist-section.component"
 export const MobileProductPage: React.FC<PieceQuery> = (props) => {
   const sliderRef = useRef<HTMLDivElement>(null)
   const [sliderHeight, setSliderHeight] = useState(0)
-  const [sliderWidth, setSliderWidth] = useState(0)
+  const [, setSliderWidth] = useState(0)
   const [currentSlide, setCurrentSlide] = React.useState(0)
   const [loaded, setLoaded] = useState(false)
 
@@ -47,8 +46,8 @@ export const MobileProductPage: React.FC<PieceQuery> = (props) => {
   )
 
   const MutationPlugin: KeenSliderPlugin = (slider) => {
-    const observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function() {
         slider.moveToIdx(0)
 
         slider.update()

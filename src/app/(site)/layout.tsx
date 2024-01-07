@@ -1,6 +1,5 @@
 import { Header } from "@/components/layout/header.component"
 import { getSiteSettings } from "@/lib/queries/settings/settings.query"
-import { useGlobalContext } from "../context/global-context"
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -16,9 +15,7 @@ const SiteLayout = async ({ children }: RootLayoutProps) => {
   return (
     <>
       {menu && <Header {...menu} />}
-
       <main className="">{children}</main>
-      {/* <Footer {...footer} /> */}
     </>
   )
 }

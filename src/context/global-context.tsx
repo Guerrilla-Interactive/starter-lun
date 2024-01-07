@@ -12,9 +12,9 @@ import React, {
 import useScrollbarWidth from "./context-hooks/calculate-scrollbar-width.utility"
 import { usePathname } from "next/navigation"
 import { useLocalStorage } from "@/src/utils/hooks/use-local-storage";
-import { PieceQuery, PieceType } from "../(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries";
 import { OrderEmailProps } from "@/src/emails/order-success";
 import * as z from "zod"
+import { PieceQuery, PieceType } from "../app/(site)/pieces/pieces-shared-utils/pieces-queries/pieces.shared-queries";
 
 
 type MenuItemType = {

@@ -18,7 +18,7 @@ import { LinkResolver } from "@/src/components/utils/link-resolver.component"
 import { PiecesIndexQuery, PiecesQuery } from "../(pieces-index-core)/(pieces-index-server)/pieces.index-query"
 import { ArchiveSwatches } from "./archive-swatches.component"
 import { PieceQuery } from "../../pieces-shared-utils/pieces-queries/pieces.shared-queries"
-import { useGlobalContext } from "@/src/app/context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 import { AllCategoryPieceType, CategoryFilterSlider, } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { CategoryQueryType } from "../../../categories/categories-shared-utils/categories-queries/categories.shared-queries"
 

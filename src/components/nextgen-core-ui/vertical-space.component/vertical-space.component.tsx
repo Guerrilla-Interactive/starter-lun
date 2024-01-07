@@ -5,7 +5,7 @@ import React, { forwardRef, useEffect, useState } from "react"
 import { RoundedDivider } from "../../sections/sections/hero-section/(parts)/rounded-divider.component"
 import { cn } from "@/src/utils/cn.util"
 import { motion } from "framer-motion"
-import { useGlobalContext } from "@/src/app/context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 
 interface VerticalSpaceProps {
   height?: number | string

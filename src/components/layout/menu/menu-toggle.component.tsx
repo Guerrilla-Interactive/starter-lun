@@ -2,7 +2,7 @@
 
 import React from "react"
 import { cn } from "@/utils/cn.util"
-import { useGlobalContext } from "@/src/app/context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 import { useSprings, animated } from "react-spring"
 import { Absolute, Relative } from "../../nextgen-core-ui"
 

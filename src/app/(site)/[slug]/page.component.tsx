@@ -12,7 +12,7 @@ import {
   VerticalSpace,
 } from "@/src/components/nextgen-core-ui"
 import { useEffect, useRef, useState } from "react"
-import { useGlobalContext } from "../../context/global-context"
+import { useGlobalContext } from "@/src/context/global-context"
 import { CategoryFilterSlider } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { RoundedDivider } from "@/src/components/sections/sections/hero-section/(parts)/rounded-divider.component"
 import ImageFrameCalculator from "@/src/components/image-frame-calculator/image-frame-calculator.component"

@@ -19,20 +19,20 @@ import { clientEnv } from "@/env/client.mjs"
 import { cn } from "@/utils/cn.util"
 import {
   GlobalContextProvider,
-} from "./context/global-context"
-import { NextgenContextStatusPanel } from "./context/nextgen-context-status-panel/nextgen-context-status-panel"
+} from "../context/global-context"
+import { NextgenContextStatusPanel } from "../context/nextgen-context-status-panel/nextgen-context-status-panel"
 import { draftMode } from "next/headers"
 import VisualEditing from "../components/sanity/visual-editing"
 
 const grotesk = localFont({
   src: [
     {
-      path: "./fonts/grotesk/ft-system-grotesk-regular.woff2",
+      path: "../fonts/grotesk/ft-system-grotesk-regular.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/grotesk/ft-system-grotesk-bold.woff2",
+      path: "../fonts/grotesk/ft-system-grotesk-bold.woff2",
       weight: "700",
       style: "normal",
     },
@@ -43,17 +43,17 @@ const grotesk = localFont({
 const arizona = localFont({
   src: [
     {
-      path: "./fonts/arizona/abc-arizona-flare-thin.woff2",
+      path: "../fonts/arizona/abc-arizona-flare-thin.woff2",
       weight: "200",
       style: "normal",
     },
     {
-      path: "./fonts/arizona/abc-arizona-flare-light.woff2",
+      path: "../fonts/arizona/abc-arizona-flare-light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/arizona/abc-arizona-flare-regular.woff2",
+      path: "../fonts/arizona/abc-arizona-flare-regular.woff2",
       weight: "400",
       style: "normal",
     },

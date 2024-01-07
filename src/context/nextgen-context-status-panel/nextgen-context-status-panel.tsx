@@ -1,20 +1,17 @@
 "use client"
 
-import React, { useState, FC, useRef } from "react"
+import React, { useState, FC } from "react"
 import {
-  ContextProps,
-  GlobalData,
   useGlobalContext,
-} from "@/src/app/context/global-context"
+} from "@/src/context/global-context"
 import {
   Fixed,
   Flex,
   FlexCol,
   FlexRow,
-} from "../../../components/nextgen-core-ui"
+} from "../../components/nextgen-core-ui"
 import TogglePanel from "./utilities/toggle-panel.component"
 import { cn } from "@/src/utils/cn.util"
-import { useDraggable } from "react-use-draggable-scroll"
 
 type Tab =
   | "generalData"
@@ -23,21 +20,6 @@ type Tab =
   | "headerData"
   | "pageData"
   | "shoppingCartData"
-const evaluateStatus = (key: string, value: any): boolean => {
-  return value === true || key.includes("true")
-}
-
-const generateFileTree = async () => {
-  const response = await fetch("/api/generateFileTree", {
-    method: "POST",
-  })
-
-  if (response.ok) {
-    console.log("File tree generated successfully")
-  } else {
-    console.error("Error generating file tree")
-  }
-}
 
 type DataCellProps = {
   data: any
