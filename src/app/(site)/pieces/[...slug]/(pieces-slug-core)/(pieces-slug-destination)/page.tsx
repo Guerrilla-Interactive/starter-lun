@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
-import { tClient } from "@/sanity/groqd-client"
+import { tClient, tClientDraft } from "@/sanity/groqd-client"
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
 import { PiecesSlugPage } from "../../pieces.slug-page"
@@ -45,6 +45,7 @@ const PieceOrCateogoryPage = async ({ params }: Props) => {
   // are extracting the piece slug to get the piece details. 
   const paramsWithoutVariant = { slug: pieceSlug }
   const data = await tClient(piecesSlugQuery, paramsWithoutVariant)
+  const draftData = await tClientDraft(piecesSlugQuery, paramsWithoutVariant)
 
   // If there's no data for the given piece slug, we return error
   if (!data) {
@@ -59,7 +60,7 @@ const PieceOrCateogoryPage = async ({ params }: Props) => {
   if (draftMode().isEnabled) {
     return (
       <PiecesSlugPreview
-        initial={data}
+        initial={draftData!}
         queryParams={paramsWithoutVariant}
         variant={variant}
         pieceSlug={pieceSlug}

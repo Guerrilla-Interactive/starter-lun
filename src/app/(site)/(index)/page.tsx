@@ -2,7 +2,7 @@ import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
 import { generatePageMeta } from "@/lib/generate-page-meta.util"
-import { tClient } from "@/sanity/groqd-client"
+import { tClient, tClientDraft, tClientNew } from "@/sanity/groqd-client"
 
 import { frontPageQuery } from "./front-page.query"
 import { FrontPageComponent } from "./frontpage.component"
@@ -24,12 +24,13 @@ export const generateMetadata = async ({ params }: Props) => {
 
 const IndexPage = async () => {
   const data = await tClient(frontPageQuery)
+  const draftData = await tClientDraft(frontPageQuery)
 
   if (!data) {
     return notFound()
   }
 
-  return draftMode().isEnabled ? <FrontPagePreviewComponent initial={data} /> : <FrontPageComponent {...data} />
+  return draftMode().isEnabled ? <FrontPagePreviewComponent initial={draftData!} /> : <FrontPageComponent {...data} />
 }
 
 

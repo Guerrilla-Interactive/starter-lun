@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
-import { tClient } from "@/sanity/groqd-client"
+import { tClient, tClientDraft } from "@/sanity/groqd-client"
 import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mobile-piece-archive-page.component"
 import { AllCategoryPieceType } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
@@ -16,6 +16,7 @@ export const generateMetadata = async () => {
 
 const CategoriesPage = async () => {
   const data = await tClient(categoriesIndexQuery)
+  const draftData = await tClientDraft(categoriesIndexQuery)
 
   // If there's no data, we return error
   if (!data) {
@@ -23,7 +24,7 @@ const CategoriesPage = async () => {
   }
 
   return draftMode().isEnabled ? (
-    <CategoriesIndexPreview initial={data} />
+    <CategoriesIndexPreview initial={draftData!} />
   ) : (
     <CategoriesArchive pieces={data?.pieces} category={AllCategoryPieceType} categories={data?.categories} />
   )

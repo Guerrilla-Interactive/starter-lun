@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
-import { tClient } from "@/sanity/groqd-client"
+import { tClient, tClientDraft } from "@/sanity/groqd-client"
 import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mobile-piece-archive-page.component"
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
@@ -23,6 +23,7 @@ export const generateMetadata = async ({ params }: Props) => {
 const CategoriesPage = async ({ params }: Props) => {
 
   const data = await tClient(categoriesSlugQuery, params)
+  const draftData = await tClientDraft(categoriesSlugQuery, params)
 
   // Return not found if the category slug is invalid
   if (!data)
@@ -38,7 +39,7 @@ const CategoriesPage = async ({ params }: Props) => {
   }
 
   return draftMode().isEnabled ? (
-    <CategoriesSlugPreview initial={data} queryParams={params} />
+    <CategoriesSlugPreview initial={draftData!} queryParams={params} />
   ) : (
     <CategoriesArchive pieces={pieces} category={category} categories={categories} />
   )

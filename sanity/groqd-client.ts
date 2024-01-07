@@ -1,8 +1,6 @@
 import type { z } from "groqd"
-import { cache } from "react"
-
-import { client } from "./client"
 import { loadQuery } from "./store"
+import { draftClient } from "./draft.client";
 
 type Query = string
 type Payload<T> = { schema: T; query: Query }
@@ -41,9 +39,9 @@ export const makeSafeQueryRunnerCustomSourceMeta =
     ): Promise<z.infer<T>> =>
       fn(query, params).then((res) => schema.parse(res.data))
 
-const clientFetch = cache(client.fetch.bind(client))
 
-export const tClientNew = makeSafeQueryRunnerCustomSourceMeta(loadQuery)
-export const tClient = makeSafeQueryRunnerCustom((query, params) =>
-  clientFetch(query, params ?? {})
+export const tClient = makeSafeQueryRunnerCustomSourceMeta(loadQuery)
+export const tClientDraft = makeSafeQueryRunnerCustom((query, params) =>
+  (draftClient.fetch.bind(draftClient))(query, params ?? {})
 )
+

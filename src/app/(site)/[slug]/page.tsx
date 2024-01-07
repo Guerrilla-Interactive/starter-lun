@@ -2,7 +2,7 @@ import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
 import { generatePageMeta } from "@/lib/generate-page-meta.util"
-import { tClient } from "@/sanity/groqd-client"
+import { tClient, tClientDraft } from "@/sanity/groqd-client"
 
 import { PageComponent } from "./page.component"
 import { PagePreview } from "./page.preview"
@@ -27,6 +27,9 @@ const PagePage = async ({ params }: Props) => {
   const data = await tClient(pageQuery, {
     ...params,
   })
+  const draftData = await tClientDraft(pageQuery, {
+    ...params,
+  })
 
   if (!data) {
     return notFound()
@@ -36,7 +39,7 @@ const PagePage = async ({ params }: Props) => {
     return (
       <PagePreview
         queryParams={params}
-        initial={data}
+        initial={draftData!}
       />
     )
   }
