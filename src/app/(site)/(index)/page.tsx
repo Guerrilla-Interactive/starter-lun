@@ -2,7 +2,7 @@ import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
 import { generatePageMeta } from "@/lib/generate-page-meta.util"
-import { tClient, tClientDraft, tClientNew } from "@/sanity/groqd-client"
+import { tClient, tClientDraft } from "@/sanity/groqd-client"
 
 import { frontPageQuery } from "./front-page.query"
 import { FrontPageComponent } from "./frontpage.component"
