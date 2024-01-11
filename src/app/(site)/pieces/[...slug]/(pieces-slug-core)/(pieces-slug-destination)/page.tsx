@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
@@ -6,7 +7,6 @@ import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
 import { PiecesSlugPage } from "../../pieces.slug-page"
 import { piecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
-import dynamic from "next/dynamic"
 
 const PiecesSlugPreview = dynamic(() => import("./pieces.slug-preview"))
 

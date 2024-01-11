@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
@@ -6,7 +7,6 @@ import { tClient, tClientDraft } from "@/sanity/groqd-client"
 
 import { frontPageQuery } from "./front-page.query"
 import { FrontPageComponent } from "./frontpage.component"
-import dynamic from "next/dynamic"
 
 type Props = {
   params: {

@@ -1,6 +1,6 @@
+import dynamic from "next/dynamic"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
-import dynamic from "next/dynamic"
 
 import { generatePageMeta } from "@/lib/generate-page-meta.util"
 import { tClient, tClientDraft } from "@/sanity/groqd-client"

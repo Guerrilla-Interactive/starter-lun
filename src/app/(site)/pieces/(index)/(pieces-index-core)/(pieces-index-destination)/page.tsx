@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
@@ -6,7 +7,6 @@ import { tClient, tClientDraft } from "@/sanity/groqd-client"
 
 import { PiecesIndexPage } from "../../pieces.index-page"
 import { piecesIndexQuery } from "../(pieces-index-server)/pieces.index-query"
-import dynamic from "next/dynamic"
 
 const PiecesIndexPreview = dynamic(() => import('./pieces.index-preview'))
 

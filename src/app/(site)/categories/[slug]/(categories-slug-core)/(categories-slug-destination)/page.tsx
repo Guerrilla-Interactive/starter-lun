@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
 
@@ -6,7 +7,6 @@ import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mo
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
 import { categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
-import dynamic from "next/dynamic"
 
 const CategoriesSlugPreview = dynamic(() => import("./categories.slug-preview"))
 
