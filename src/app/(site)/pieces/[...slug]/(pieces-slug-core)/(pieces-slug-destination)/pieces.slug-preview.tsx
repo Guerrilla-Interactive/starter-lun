@@ -7,7 +7,7 @@ import type { PiecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
 import { piecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
 import type { VariantIdType } from "./page"
 
-export const PiecesSlugPreview = ({
+const PiecesSlugPreview = ({
   initial,
   queryParams,
   variant,
@@ -30,3 +30,4 @@ export const PiecesSlugPreview = ({
     />
   )
 }
+export default PiecesSlugPreview

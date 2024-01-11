@@ -6,13 +6,15 @@ import { tClient, tClientDraft } from "@/sanity/groqd-client"
 
 import { frontPageQuery } from "./front-page.query"
 import { FrontPageComponent } from "./frontpage.component"
-import FrontPagePreviewComponent from "./frontpage.preview"
+import dynamic from "next/dynamic"
 
 type Props = {
   params: {
     slug: string
   }
 }
+
+const FrontPagePreviewComponent = dynamic(() => import("./frontpage.preview"))
 
 export const generateMetadata = async ({ params }: Props) => {
   const data = await tClient(frontPageQuery, {

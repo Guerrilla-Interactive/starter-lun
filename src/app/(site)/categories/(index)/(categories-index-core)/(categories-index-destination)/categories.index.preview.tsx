@@ -4,10 +4,10 @@ import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mo
 import { AllCategoryPieceType } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { PreviewLoadingErrorHOC } from "@/src/components/sanity/preview-loading-error-hoc"
 
-import type { CategoriesIndexQuery} from "../(categories-index-server)/categories.index-query";
+import type { CategoriesIndexQuery } from "../(categories-index-server)/categories.index-query";
 import { categoriesIndexQuery } from "../(categories-index-server)/categories.index-query"
 
-export const CategoriesIndexPreview = ({
+const CategoriesIndexPreview = ({
   initial,
 }: {
   initial: CategoriesIndexQuery
@@ -27,3 +27,4 @@ export const CategoriesIndexPreview = ({
   )
 }
 
+export default CategoriesIndexPreview

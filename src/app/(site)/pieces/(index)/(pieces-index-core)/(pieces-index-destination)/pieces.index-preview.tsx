@@ -6,7 +6,7 @@ import { PiecesIndexPage } from "../../pieces.index-page"
 import type { PiecesIndexQuery } from "../(pieces-index-server)/pieces.index-query"
 import { piecesIndexQuery } from "../(pieces-index-server)/pieces.index-query"
 
-export const PiecesIndexPreview = ({
+const PiecesIndexPreview = ({
   initial,
 }: {
   initial: PiecesIndexQuery
@@ -21,3 +21,4 @@ export const PiecesIndexPreview = ({
     />
   )
 }
+export default PiecesIndexPreview

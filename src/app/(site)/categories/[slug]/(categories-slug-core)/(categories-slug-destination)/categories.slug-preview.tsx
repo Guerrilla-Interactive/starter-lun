@@ -4,10 +4,10 @@ import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mo
 import { AllCategoryPieceType } from "@/src/components/category-filter-slider/category-filter-slider.component"
 import { PreviewLoadingErrorHOC } from "@/src/components/sanity/preview-loading-error-hoc"
 
-import type { CategoriesSlugQuery} from "../(categories-slug-server)/categories.slug-query";
+import type { CategoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query";
 import { categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
 
-export const CategoriesSlugPreview = ({
+const CategoriesSlugPreview = ({
 	initial,
 	queryParams,
 }: {
@@ -29,3 +29,5 @@ export const CategoriesSlugPreview = ({
 		/>
 	)
 }
+
+export default CategoriesSlugPreview

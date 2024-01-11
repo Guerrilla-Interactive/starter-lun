@@ -6,7 +6,9 @@ import { tClient, tClientDraft } from "@/sanity/groqd-client"
 
 import { PiecesIndexPage } from "../../pieces.index-page"
 import { piecesIndexQuery } from "../(pieces-index-server)/pieces.index-query"
-import { PiecesIndexPreview } from "./pieces.index-preview"
+import dynamic from "next/dynamic"
+
+const PiecesIndexPreview = dynamic(() => import('./pieces.index-preview'))
 
 export const generateMetadata = async () => {
   const data = await tClient(piecesIndexQuery)

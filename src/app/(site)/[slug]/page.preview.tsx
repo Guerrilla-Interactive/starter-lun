@@ -6,7 +6,7 @@ import { PageComponent } from "./page.component"
 import type { PageQuery } from "./page.query"
 import { pageQuery } from "./page.query"
 
-export const PagePreview = ({
+const PagePreview = ({
   initial,
   queryParams,
 }: {
@@ -24,3 +24,4 @@ export const PagePreview = ({
     />
   )
 }
+export default PagePreview

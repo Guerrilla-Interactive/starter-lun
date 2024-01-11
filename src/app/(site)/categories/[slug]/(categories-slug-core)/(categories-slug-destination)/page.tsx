@@ -6,7 +6,9 @@ import { CategoriesArchive } from "@/src/app/(site)/pieces/(index)/components/mo
 import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
 import { categoriesSlugQuery } from "../(categories-slug-server)/categories.slug-query"
-import { CategoriesSlugPreview } from "./categories.slug-preview"
+import dynamic from "next/dynamic"
+
+const CategoriesSlugPreview = dynamic(() => import("./categories.slug-preview"))
 
 
 type Props = {

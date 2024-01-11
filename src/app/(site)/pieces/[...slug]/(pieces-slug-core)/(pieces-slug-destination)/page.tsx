@@ -6,7 +6,9 @@ import { generatePageMeta } from "@/src/lib/generate-page-meta.util"
 
 import { PiecesSlugPage } from "../../pieces.slug-page"
 import { piecesSlugQuery } from "../(pieces-slug-server)/pieces.slug-query"
-import { PiecesSlugPreview } from "./pieces.slug-preview"
+import dynamic from "next/dynamic"
+
+const PiecesSlugPreview = dynamic(() => import("./pieces.slug-preview"))
 
 type Props = {
   params: {
