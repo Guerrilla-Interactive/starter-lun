@@ -1,28 +1,17 @@
 "use client"
 
-import type { FC } from "react";
-import React, { useState } from "react"
-
-import {
-  useGlobalContext,
-} from "@/src/context/global-context"
+import { Fixed, Flex, FlexCol, FlexRow } from "@/components/nextgen-core-ui"
+import React, { useState, FC, useRef, useEffect } from "react"
+import Link from "next/link"
+import TogglePanel from "./utilities/toggle-panel.component"
+import { useGlobalContext } from "../global-context"
 import { cn } from "@/src/utils/cn.util"
 
-import {
-  Fixed,
-  Flex,
-  FlexCol,
-  FlexRow,
-} from "../../components/nextgen-core-ui"
-import TogglePanel from "./utilities/toggle-panel.component"
+type Tab = "generalData"
 
-type Tab =
-  | "generalData"
-  | "siteData"
-  | "screenData"
-  | "headerData"
-  | "pageData"
-  | "shoppingCartData"
+const evaluateStatus = (key: string, value: any): boolean => {
+  return value === true || key.includes("true")
+}
 
 type DataCellProps = {
   data: any
@@ -30,6 +19,20 @@ type DataCellProps = {
 }
 
 const DataCell: FC<DataCellProps> = ({ data, level = 0 }) => {
+  const prevDataRef = useRef(data);
+  const [isChanged, setIsChanged] = useState(false);
+
+  useEffect(() => {
+    if (JSON.stringify(prevDataRef.current) !== JSON.stringify(data)) {
+      setIsChanged(true);
+      const timeoutId = setTimeout(() => setIsChanged(false), 1000);
+      prevDataRef.current = data;
+      return () => clearTimeout(timeoutId);
+    }
+  }, [data]);
+
+  const dataStyle = isChanged ? { backgroundColor: 'yellow', transition: 'background-color 0.3s ease' } : {};
+
   const stringifyObject = (obj: any, depth = 0, indent = 0): string => {
     if (depth > 3 || obj === null || typeof obj !== 'object') {
       return JSON.stringify(obj);
@@ -71,11 +74,12 @@ const DataCell: FC<DataCellProps> = ({ data, level = 0 }) => {
   return <span>{data != null ? data.toString() : 'null'}</span>;
 };
 
-const DataRow: FC<{ data: Record<string, any> }> = ({ data }) => (
-  <>
+const DataRow = React.memo<{ data: Record<string, any> }>(({ data }) => {
+
+  return <>
     {Object.keys(data).map((key) => (
       <FlexRow
-        className="max-h-[300px] justify-between gap-x-2 overflow-scroll border-b border-b-gray-400 border-opacity-20 py-4 scrollbar-hide"
+        className="justify-between max-h-[300px] scrollbar-hide overflow-y-scroll overflow-x-scroll gap-x-2 border-b border-b-gray-400 border-opacity-20 py-4 "
         key={key}
       >
         <FlexRow className="gap-x-4">
@@ -92,61 +96,33 @@ const DataRow: FC<{ data: Record<string, any> }> = ({ data }) => (
       </FlexRow>
     ))}
   </>
-)
+})
 
 export const NextgenContextStatusPanel: FC = () => {
-  const [activeTab, setActiveTab] = useState<string>("generalData")
-  const { globalData } = useGlobalContext()
+  const [activeTab, setActiveTab] = useState<string>("generalData");
+  const { pathname } = useGlobalContext();
 
-  if (process.env.NODE_ENV === "production") return null
+  if (process.env.NODE_ENV === "production") return null;
+
   const renderContent = {
-    generalData: (
-      <>
-        <DataRow data={{ pathname: globalData.pageData.pathname }} />
-        <DataRow
-          data={{
-            screenWidth: globalData.screenData.screenWidth,
-            screenHeight: globalData.screenData.screenHeight,
-          }}
-        />
-        <DataRow data={{ expanded: globalData.headerData.expanded }} />
-        <DataRow data={{ peek: globalData.headerData.peek }} />
-        <DataRow
-          data={{ verticalSpaceActivated: globalData.verticalSpaceActivated }}
-        />
+    generalData: <DataRow data={{ pathname: pathname }} />,
 
-        <DataRow data={{ aboveTheFold: globalData.headerData.aboveTheFold }} />
-        <DataRow data={{ topOfPage: globalData.headerData.topOfPage }} />
-        <DataRow
-          data={{ halfwayOrMore: globalData.headerData.halfwayOrMore }}
-        />
-      </>
-    ),
-    pageData: <DataRow data={globalData.pageData} />,
-    siteData: <DataRow data={globalData.siteData} />,
-    screenData: <DataRow data={globalData.screenData} />,
-    headerData: <DataRow data={globalData.headerData} />,
-    shoppingCartData: <DataRow data={globalData.shoppingCartData} />,
-  }
+  };
+
+
+
 
   return (
-    <Fixed bottom right className="bottom-12 right-12  !z-[999]">
+    <Fixed bottom right className="bottom-12 right-12 !z-[999] w-fit ">
       <TogglePanel title="Nextgen Context">
-        <FlexCol className=" min-h-[37.5rem] w-[22.5rem] rounded-lg border-2 border-[#ffffff55] bg-white bg-opacity-50 font-sans text-xs font-light  backdrop-blur-lg ">
+        <FlexCol className=" max-h-[37.5rem] w-[60.5rem] overflow-y-scroll rounded-lg border-2 border-[#ffffff0a] bg-black bg-opacity-50 font-sans text-xs font-light  backdrop-blur-lg ">
           <Flex className="gap-6 overflow-x-scroll border-b-[1px] border-gray-400  border-opacity-20  bg-opacity-20  py-6 scrollbar-hide  ">
-            {[
-              "generalData",
-              "siteData",
-              "pageData",
-              "headerData",
-              "screenData",
-              "shoppingCartData",
-            ].map((tab) => (
+            {["generalData"].map((tab) => (
               <button
                 key={tab}
                 className={cn(
                   activeTab === tab ? "active-tab font-bold" : "",
-                  " whitespace-nowrap opacity-80 first:ml-6 last:mr-6"
+                  "whitespace-nowrap opacity-80 first:ml-6 last:mr-6"
                 )}
                 onClick={() => setActiveTab(tab)}
               >
@@ -156,6 +132,17 @@ export const NextgenContextStatusPanel: FC = () => {
           </Flex>
           <div className="px-6 pt-5">{renderContent[activeTab as Tab]}</div>
         </FlexCol>
+        <FlexRow>
+          <Link className="flex px-4 py-2 bg-black border-white border-opacity-20 border rounded-xl mt-4 text-xs opacity-30 hover:opacity-100 active:opacity-70 " href="/">
+            /dashboard
+          </Link>
+          <Link className="flex px-4 py-2 bg-black border-white border-opacity-20 border rounded-xl mt-4 text-xs opacity-30 hover:opacity-100 active:opacity-70 " href="/projects">
+            /projects
+          </Link>
+          <Link className="flex px-4 py-2 bg-black border-white border-opacity-20 border rounded-xl mt-4 text-xs opacity-30 hover:opacity-100 active:opacity-70 " href="/projects/sitemap">
+            /sitemap
+          </Link>
+        </FlexRow>
       </TogglePanel>
     </Fixed>
   )
@@ -168,5 +155,7 @@ type StatusCircleProps = {
 const StatusCircle: FC<StatusCircleProps> = ({ status }) => {
   const circleClass = status ? "bg-green-500" : "bg-red-500"
 
-  return <div className={`!z-[9909] h-4 w-4 rounded-full ${circleClass}`} />
+  return <div className={` h-4 w-4 rounded-full ${circleClass}`} />
 }
+
+

@@ -37,7 +37,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".next/types/**/*.ts",
-    "src/app/(site)/pieces/[slug]/components/mobile-product-page/(parts)/material-filter-tabs.componentstsx"
-, "src/pages/api/checkout_sessions.hs"  ],
+  ],
   "exclude": ["node_modules"]
 }
+

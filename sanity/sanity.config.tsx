@@ -3,8 +3,6 @@ import { visionTool } from "@sanity/vision"
 import { defineConfig } from "sanity"
 import { deskTool } from "sanity/desk"
 import { media, mediaAssetSource } from "sanity-plugin-media"
-import "./desk/theme/lunnheim.theme.css"
-
 import { clientEnv } from "@/env/client.mjs"
 import { RequiredField } from "@/sanity/components/required-field.component"
 import { actions } from "@/sanity/desk/actions"
@@ -15,8 +13,6 @@ import { schemaTypes } from "@/sanity/schemas"
 import { BASE_STUDIO_PATH } from "@/sanity/schemas/sanity.consts"
 import { fathomTool } from "@/sanity/tools/fathom.tool"
 
-import { lunnheimTheme } from "./desk/theme/lunnheim.theme"
-import { LunnheimLogo } from "./desk/theme/lunnheim-logo.component"
 import { presentationTool } from 'sanity/presentation'
 
 
@@ -31,14 +27,8 @@ if (clientEnv.NEXT_PUBLIC_FATHOM_ID) {
 export default defineConfig({
   basePath: `/${BASE_STUDIO_PATH}`,
   title: clientEnv.NEXT_PUBLIC_SITE_NAME,
-  theme: lunnheimTheme,
   dataset: clientEnv.NEXT_PUBLIC_SANITY_DATASET,
   projectId: clientEnv.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  studio: {
-    components: {
-      logo: () => <LunnheimLogo style={{ height: 45, padding: 8.5 }} />,
-    },
-  },
   schema: {
     types: [...schemaTypes],
     templates: initialValueTemplates,

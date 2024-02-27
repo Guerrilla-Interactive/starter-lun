@@ -111,7 +111,6 @@ module.exports = {
       },
     },
     animation: {
-      slowIntro: "fadeIn 12s ease-in-out",
       fadeIn: "fadeIn 0.1s ease-out",
       "accordion-down": "accordion-down 0.2s ease-out",
       "accordion-up": "accordion-up 0.2s ease-out",
@@ -119,11 +118,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-grotesk)"],
-        mono: ["var(--font-arizona)"],
-        serif: ["var(--font-arizona)"],
-        grotesk: ["var(--font-grotesk)"],
-        arizona: ["var(--font-arizona)"],
+
       },
 
       fontSize: {
@@ -131,19 +126,7 @@ module.exports = {
       },
 
       colors: {
-        "lunnheim-olive": "#AA9966",
-        "lunnheim-dark-olive": "#474224",
-        "lunnheim-darker-olive": "#302C19",
-        "lunnheim-pale-yellow": "#E9D1A0",
-        "lunnheim-ivory-yellow": "#FFF6DE",
-        "lunnheim-vibrant-yellow": "#FFBE2E",
-        "lunnheim-dusty-pink": "#EFB9AB",
-        "lunnheim-light-pink": "#FBF2EF",
-        "lunnheim-black": "#000000",
-        "lunnheim-white": "#FFFFFF",
-        "lunnheim-background-shade-1": "#F9F0D6",
-        "lunnheim-background-shade-2": "#F7EDD2",
-        "lunnheim-background-shade-3": "#EBE1C2",
+
       },
       screens: {
         xs: "375px",

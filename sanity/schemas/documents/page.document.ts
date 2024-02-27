@@ -7,7 +7,6 @@ import { requiredField } from "@/sanity/schemas/generator-field/required.field"
 import { sectionsField } from "@/sanity/schemas/generator-field/sections.field"
 import { slugField } from "@/sanity/schemas/generator-field/slug.field"
 import { defaultGroups } from "@/sanity/schemas/utils/default-groups.util"
-import { heroSectionObject } from "@/src/components/hero-section.component/hero.section-schema"
 
 export const page = defineType({
   type: "document",
@@ -24,7 +23,6 @@ export const page = defineType({
       type: "string",
       name: "title",
     }),
-    heroSectionObject,
     slugField({}),
     sectionsField({}),
     portableField({}),

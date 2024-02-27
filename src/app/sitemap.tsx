@@ -6,8 +6,6 @@ import { clientEnv } from "@/env/client.mjs"
 import { PATHS, resolvePath } from "@/lib/navigation/resolve-path.util"
 import { tClient } from "@/sanity/groqd-client"
 
-import { piecesIndexQuery } from "./(site)/pieces/(index)/(pieces-index-core)/(pieces-index-server)/pieces.index-query"
-
 const sitemapFields = {
   _updatedAt: q.string(),
   _type: q.string(),
@@ -42,7 +40,6 @@ export const getSitemap = async () => {
 async function createSitemap(): Promise<MetadataRoute.Sitemap> {
   const sanitizedUrl: any = sanitizeUrl(clientEnv.NEXT_PUBLIC_SITE_URL ?? "")
   const sitemapData = await getSitemap()
-  const piecesData = (await tClient(piecesIndexQuery))?.pieces
   const sitemap: MetadataRoute.Sitemap = []
 
   // assuming sitemapData.pages and sitemapData.frontPage are the data you need
@@ -65,16 +62,7 @@ async function createSitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
 
-  // Add pieces variants to sitemap
-  piecesData?.forEach(piece => {
-    piece.variants?.forEach(variant => {
-      const variantPage = {
-        url: `${sanitizedUrl}${resolvePath(piece._type, piece.slug)}/${variant.slug}`,
-        lastModified: piece._updatedAt,
-      }
-      sitemap.push(variantPage)
-    })
-  })
+
 
 
   // Add all other pages to the sitemap

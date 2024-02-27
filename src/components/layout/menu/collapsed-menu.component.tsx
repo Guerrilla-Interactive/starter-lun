@@ -9,24 +9,18 @@ import { MenuItem } from "./menu-item.component"
 import { MenuToggle } from "./menu-toggle.component"
 
 export const CollapsedMenu = ({ mainMenu }: { mainMenu: MainMenu }) => {
-  const { globalData, setGlobalData } = useGlobalContext()
-  const isExpanded = globalData.headerData.expanded
-
+  const { layout } = useGlobalContext()
+  const isExpanded = layout?.header.menu.isExpanded
   const handleToggle = () => {
-    setGlobalData({
-      ...globalData,
-      headerData: {
-        ...globalData.headerData,
-        expanded: !globalData.headerData.expanded,
-      },
-    })
+    layout?.header?.menu?.isExpanded
   }
+
 
   return (
     <>
       <MenuToggle
         className="md:hidden"
-        isOpen={isExpanded}
+        isOpen={isExpanded ? true : false}
         setIsOpen={handleToggle}
       />
       <Transition appear show={isExpanded} as={Fragment}>

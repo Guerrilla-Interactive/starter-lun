@@ -1,12 +1,13 @@
 import type { ArrayDefinition } from "sanity"
 import { defineField } from "sanity"
 
-import * as SECTIONS from "@/src/components/sections/sections/section-block.schemas"
+
+import * as SECTIONS from "@/src/components/section-builder/section-block.schemas"
 
 import type { FieldDef } from "./field.types"
 
 const sections = Object.values(SECTIONS).map((section) => ({
-  type: section.name,
+  type: section.name
 }))
 
 // If sections == string[], include only those sections

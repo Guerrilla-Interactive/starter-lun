@@ -7,10 +7,6 @@
 export const PATHS = {
   page: "",
   frontPage: "",
-  piece: "pieces",
-  piecesIndex: "pieces",
-  category: "categories",
-  categoriesIndex: "categories",
 } as const
 
 export function resolvePath(type: string, slug?: string | null) {
